@@ -1,0 +1,614 @@
+[
+  {
+    "id": "321",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are na ML specialist preparing some labeled data to help determine whether a given leaf originates from a poisonous plant. The target attribute is poisonous and is classified as 0 or 1. The data that you have been analyzing has the following features: leaf height (cm), leaf length (cm), number of cells (trillions), poisonous (binary). After initial analysis you do not suspect any outliers in any of the attributes. After using the data given to train your model, you are getting extremely skewed results. What technique can you apply to possibly help solve this issue?",
+      "answers": [
+        "Drop the number of cells attribute.",
+        "Apply one-hot encoding to each of the attributes, except for the poisonous attribute (since it is already encoded).",
+        "PutRecords API call",
+        "Standardize the number of cells attribute.",
+        "Normalize the number of cells attribute."
+      ],
+      "correctAnswer": ["Normalize the number of cells attribute."]
+    }
+  },
+  {
+    "id": "323",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist who is working within SageMaker analyzing a dataset in a Jupyter notebook. On your local machine you have several open-source Python libraries that you have downloaded from the internet using a typical package manager. You want to download and use these same libraries on your dataset in SageMaker within your Jupyter notebook. What options allow you to use these libraries?",
+      "answers": [
+        "Upload the library in .zip format into S3 and use the Jupyter notebook in SageMaker to reference S3 bucket with Python libraries.",
+        "SageMaker offers a wide variety of built-in libraries. If the library you need is not included, contact AWS support with details on libraries needed for distribution.",
+        "SSH into the Jupyter notebook instance and install needed libraries. This is typically done using conda install or pip install.",
+        "Use the integrated terminals in SageMaker to install libraries. This is typically done using conda install or pip install."
+      ],
+      "correctAnswer": ["Use the integrated terminals in SageMaker to install libraries. This is typically done using conda install or pip install."]
+    }
+  },
+  {
+    "id": "324",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You work for an organization that wants to manage all of the data stores in S3. The organization wants to automate the transformation jobs on the S3 data and maintain a data catalog of the metadata concerning the datasets. The solution that you choose should require the least amount of setup and maintenance. Which solution will allow you to achieve this and achieve its goals?",
+      "answers": [
+        "Create a cluster in EMR that uses Apache Hive. Then, create a simple Hive script that runs transformation jobs on a schedule.",
+        "Create an AWS Data Pipeline that transforms the data. Then, create an Apache Hive metastore and a script that runs transformation jobs on a schedule.",
+        "Create an AWS Glue crawler to populate the AWS Glue Data Catalog. Then, create an AWS Glue job, and set up a schedule for data transformation jobs.",
+        "Create a cluster in EMR that uses Apache Spark. Then, create an Apache Hive metastore and a script that runs transformation jobs on a schedule."
+      ],
+      "correctAnswer": ["Create an AWS Glue crawler to populate the AWS Glue Data Catalog. Then, create an AWS Glue job, and set up a schedule for data transformation jobs."]
+    }
+  },
+  {
+    "id": "326",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 2",
+      "question": "What are the programming languages offered in AWS Glue for Spark job types? (Choose 2)",
+      "answers": [
+        "Java",
+        "Scala",
+        "Python",
+        "R",
+        "C#"
+      ],
+      "correctAnswer": ["Scala",
+        "Python"]
+    }
+  },
+  {
+    "id": "327",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist preparing a dataset for a supervised learning problem. You are using the Amazon SageMaker Linear Learner algorithm. You notice the target label attributes are highly imbalanced and multiple feature columns contain missing values. The proportion of missing values across the entire dataset is less than 5 percent. What should you do to minimize bias due to missing values?",
+      "answers": [
+        "Drop all of the rows that contain missing values because they represent less than 5 percent of the data.",
+        "For each feature that is missing, use a supervised learning to approximate the values based on other features.",
+        "First normalize the non-missing values then replace the missing values with the normalized values.",
+        "Replace the missing values with mean or median values from the other values of the same feature."
+      ],
+      "correctAnswer": ["For each feature that is missing, use a supervised learning to approximate the values based on other features."]
+    }
+  },
+  {
+    "id": "328",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are working for an organization that takes different metrics about its customers and classifies them with one of the following statuses: bronze, silver, and gold. Depending on their status they get more/less discounts and are placed as a higher/lower priority for customer support. The algorithm you have chosen expects all numerical inputs. What can be done to handle these status values?",
+      "answers": [
+        "Use one-hot encoding techniques to map values for each status.",
+        "Experiment with mapping different values for each status and see which works best.",
+        "Use one-hot encoding techniques to map values for each status dropping the original status feature.",
+        "Apply random numbers to each status value and apply gradient descent until the values converge to expect results."
+      ],
+      "correctAnswer": ["Experiment with mapping different values for each status and see which works best."]
+    }
+  },
+  {
+    "id": "329",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist that has been tasked with setting up a transformation job for 900 TB of data. You have set up several ETL jobs written in Pyspark on AWS Glue to transform your data, but the ETL jobs are taking a very long time to process and it is extremely expensive. What are your other options for processing the data?",
+      "answers": [
+        "Create Kinesis Data Stream to stream the data to multiple EC2 instances each performing partition workloads and ETL jobs. Tweak cluster size, instance types, and data partitioning until performance and cost satisfaction is met.",
+        "Change job type to Python shell and use built-in libraries to perform the ETL jobs. The built-in libraries perform better than Spark jobs and are a fraction of the cost.",
+        "Create an EMR cluster with Spark, Hive, and Flink to perform the ETL jobs. Tweak cluster size, instance types, and data partitioning until performance and cost satisfaction is met.",
+        "Offload the data to Redshift and perform transformation from Redshift rather than S3. Setup AWS Glue jobs to use Redshift as input data store, then run ETL jobs on batches of Redshift data. Adjust the batch size until performance and cost satisfaction is met."
+      ],
+      "correctAnswer": ["Create an EMR cluster with Spark, Hive, and Flink to perform the ETL jobs. Tweak cluster size, instance types, and data partitioning until performance and cost satisfaction is met."]
+    }
+  },
+  {
+    "id": "330",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist who has a Python script using libraries like Boto3, Pandas, NumPy, and sklearn to help transform data that is in S3. On your local machine the data transformation is working as expected. You need to find a way to schedule this job to run periodically and store the transformed data back into S3. What is the best option to use to achieve this?",
+      "answers": [
+        "Create an AWS Glue job that uses Spark as the job type to create Scala code to transform and store data in S3. Then set up this job to run on some schedule.",
+        "Create an AWS Glue job that uses Python shell as the job type and executes the code written to transform and store data in S3. Then set up this job to run on some schedule.",
+        "Create an EMR cluster that runs Apache Spark code to transform and store data in S3. Then set up this job to run on some schedule.",
+        "Create an AWS Glue job that uses Spark as the job type to create Pyspark code to transform and store data in S3. Then set up this job to run on some schedule."
+      ],
+      "correctAnswer": ["Create an AWS Glue job that uses Python shell as the job type and executes the code written to transform and store data in S3. Then set up this job to run on some schedule."]
+    }
+  },
+  {
+    "id": "331",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 3",
+      "question": "Choose the scenarios in which one-hot encoding techniques are NOT a good idea. (Choose 3)",
+      "answers": [
+        "When our algorithm expects numeric input and we have few nominal categorical values.",
+        "When our algorithm accepts numeric input and we have continuous values.",
+        "When our algorithm expects numeric input and we have ordinal categorical values.",
+        "When our algorithm expects numeric input and we have thousands of nominal categorical values.",
+        "When our values cannot be ordered in any meaningful way, there are only a few to choose from, and our algorithm expects numeric input."
+      ],
+      "correctAnswer": ["When our algorithm expects numeric input and we have thousands of nominal categorical values.",
+        "When our algorithm accepts numeric input and we have continuous values.",
+        "When our algorithm expects numeric input and we have ordinal categorical values."]
+    }
+  },
+  {
+    "id": "332",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist who has 780 GB of files in a data lake-hosted S3. The metadata about these files is stored in the S3 bucket as well. You need to search through the data lake to get a better understanding of what the data consists of. You will most likely do multiple searches depending on results found throughout your research. Which solution meets the requirements with the LEAST amount of effort?",
+      "answers": [
+        "Use Amazon Athena to analyze and query your S3 data.",
+        "Create an EMR cluster with Apache Hive to analyze and query your data.",
+        "First, enable S3 analytics then use the metastore files to analyze your data.",
+        "Create a Redshift cluster that uses S3 as the input data course, and use Redshift Spectrum to analyze and query your S3 data."
+      ],
+      "correctAnswer": ["Use Amazon Athena to analyze and query your S3 data."]
+    }
+  },
+  {
+    "id": "333",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist that has been tasked with setting up an ETL pipeline for your organization. The team already has a EMR cluster that will be used for ETL tasks and needs to be directly integrated with Amazon SageMaker without writing any specific code to connect EMR to SageMaker. Which framework allows you to achieve this?",
+      "answers": [
+        "Apache Flink",
+        "Apache Mahout",
+        "Apache Pig",
+        "Apache Hive",
+        "Apache Spark"
+      ],
+      "correctAnswer": ["Apache Spark"]
+    }
+  },
+  {
+    "id": "334",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Data Engineering",
+      "questionType": "multiple choice 1",
+      "question": "An ML specialist is working for a bank and trying to determine if credit card transactions are fraudulent or non-fraudulent. The features of the data collected include things like customer name, customer type, transaction amount, length of time as a customer, and transaction type. The transaction type is classified as normal and abnormal. What data preparation action should the ML specialist take?",
+      "answers": [
+        "Drop the customer name and and perform label encoding on the transaction type before training the model.",
+        "Drop the length of time as a customer and perform label encoding on the transaction type before training the model.",
+        "Drop both the customer type and the transaction type before training the model.",
+        "Drop the transaction type and perform label encoding on the customer type before training the model."
+      ],
+      "correctAnswer": ["Drop the customer name and and perform label encoding on the transaction type before training the model."]
+    }
+  },
+  {
+    "id": "335",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist building a regression model to predict the amount of rainfall for the upcoming year. The data you have contains 18,000 observations collected over the last 50 years. Each observation contains the date, amount of rainfall (in cm), humidity, city, and state. You plot the values in a scatter plot for a given day and amount of rainfall. After plotting points, you find a large grouping of values around 0 cm and 0.2 cm. There is a small grouping of values around 500 cm. What are the reasons for each of these groupings? What should you do to correct these values?",
+      "answers": [
+        "The groupings around 0 cm are days that had no rainfall, the groupings around 0.2 cm are days where it rained, the groupings around 500 cm are days where it snowed. The values should be used as is.",
+        "The groupings around 0 cm are days that had no rainfall, the groupings around 0.2 cm are days where it rained, the groupings around 500 cm are outliers. The values around 500 cm should be dropped and the other values should be used as is.",
+        "The groupings around 0 cm are days that had no rainfall, the groupings around 0.2 cm are days where it rained, the groupings around 500 cm are outliers. The values around 500 cm should be normalized so they are on the same scale as the other values.",
+        "The groupings around 0 cm and 0.2 cm are extremes and should be removed. The values around 500 cm should be normalized and used once normalized."
+      ],
+      "correctAnswer": ["The groupings around 0 cm are days that had no rainfall, the groupings around 0.2 cm are days where it rained, the groupings around 500 cm are outliers. The values around 500 cm should be dropped and the other values should be used as is."]
+    }
+  },
+  {
+    "id": "336",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 3",
+      "question": "Which visualizations help show composition? (Choose 3)",
+      "answers": [
+        "Pie chart",
+        "Stacked area chart",
+        "Histogram",
+        "Bubble chart",
+        "Stacked bar chart",
+        "Bar chart",
+        "Box plot"
+      ],
+      "correctAnswer": ["Pie chart",
+        "Stacked area chart",
+        "Stacked bar chart"]
+    }
+  },
+  {
+    "id": "336",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "You are working for a major research university analyzing data about the professors who teach there. The features within the data contain information like employee id, position, department, job description, salary, and tenure. The tenure attribute is binary 0 or 1, whether the professor has tenure or does not have tenure. You need to find the distribution of professors and salaries. What is the best visualization to use to achieve this?",
+      "answers": [
+        "Pie chart",
+        "Scatter chart",
+        "Histogram",
+        "Bubble chart",
+        "Line chart"
+      ],
+      "correctAnswer": ["Histogram"]
+    }
+  },
+  {
+    "id": "337",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "Which type of visualization uses color to show the density of values?",
+      "answers": [
+        "Scatter chart",
+        "Heatmap",
+        "Bubble plot",
+        "Histogram"
+      ],
+      "correctAnswer": ["Heatmap"]
+    }
+  },
+  {
+    "id": "338",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 3",
+      "question": "Which visualizations help show distribution? (Choose 3)",
+      "answers": [
+        "Stacked bar chart",
+        "Box plot",
+        "Bubble chart",
+        "Scatter chart",
+        "Stacked area chart",
+        "Histogram",
+        "Line chart"
+      ],
+      "correctAnswer": ["Box plot",
+        "Scatter chart",
+        "Histogram"]
+    }
+  },
+  {
+    "id": "339",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "Which Amazon service allows you to create interactive graphs and charts, and acts as Business Intelligence (BI) tool?",
+      "answers": [
+        "Athena",
+        "Matplotlib",
+        "Tableau",
+        "Quicksight"
+      ],
+      "correctAnswer": ["Quicksight"]
+    }
+  },
+  {
+    "id": "340",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 2",
+      "question": "Which visualizations help show relationships? (Choose 2)",
+      "answers": [
+        "Bubble chart",
+        "Bar chart",
+        "Pie chart",
+        "Scatter plot",
+        "Histogram",
+        "Stacked area chart",
+        "Stacked bar chart"
+      ],
+      "correctAnswer": ["Bubble chart",
+        "Scatter plot"]
+    }
+  },
+  {
+    "id": "341",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 2",
+      "question": "Which visualizations help show comparisons? (Choose 2)",
+      "answers": [
+        "Bar chart",
+        "Stacked area chart",
+        "Line chart",
+        "Stacked bar chart",
+        "Scatter plot",
+        "Histogram",
+        "Bubble chart"
+      ],
+      "correctAnswer": ["Bar chart",
+        "Line chart"]
+    }
+  },
+  {
+    "id": "342",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist working for a retail organization. You are analyzing customer spending data for particular locations and comparing how it changes over time. You want to visualize the monthly total amount spent at each location over the last 5 years. Which visualization can you use to help you see this?",
+      "answers": [
+        "Histogram",
+        "Bar chart",
+        "Line chart",
+        "Scatter chart"
+      ],
+      "correctAnswer": ["Line chart"]
+    }
+  },
+  {
+    "id": "343",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist designing a regression model to predict the sales for an upcoming festival. The data from the past consists of 1,000 records containing 20 numeric attributes. As you start to analyze the data, you discovered that 30 records have values that are in the far left of a box plots lower quartile. The festival manager confirmed that those values are unusual, but plausible. There are also 65 records where another numerical value is blank. What should you do to correct these problems?",
+      "answers": [
+        "Drop the unusual records and replace the blank values with the mean value.",
+        "Drop the unusual records and replace the blank values with separate Boolean values.",
+        "Use the unusual data and replace the missing values with a separate Boolean variable.",
+        "Drop the unusual records and fill in the blank values with 0."
+      ],
+      "correctAnswer": ["Drop the unusual records and replace the blank values with the mean value."]
+    }
+  },
+  {
+    "id": "344",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "You are an ML specialist working for a retail organization. You are analyzing data that has different items at different costs. You decide to choose the top 5 most expensive items and visually compare their prices. Which visualization can help you achieve this?",
+      "answers": [
+        "Bar chart",
+        "Pie chart",
+        "Scatter chart",
+        "Histogram"
+      ],
+      "correctAnswer": ["Bar chart"]
+    }
+  },
+  {
+    "id": "345",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Exploratory Data Analysis",
+      "questionType": "multiple choice 1",
+      "question": "What does the box in a box plot represent?",
+      "answers": [
+        "The middle 50 percent of the values.",
+        "The minimum values.",
+        "The maximum values.",
+        "The median value."
+      ],
+      "correctAnswer": ["The middle 50 percent of the values."]
+    }
+  },
+  {
+    "id": "346",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "We are using a CSV dataset for unsupervised learning that does not include a target value. How should we indicate this for training data as it sits on S3?",
+      "answers": [
+        "SageMaker will automatically detect the data format for supervised learning algorithms.",
+        "CSV data format should not be used for unsupervised learning algorithms.",
+        "Enable pipe mode when we initiate the training run.",
+        "Include a reserved word metadata key of ColumnCount for the S3 file and set it to the number of columns.",
+        "Include label_size=0 appended to the Content-Type key."
+      ],
+      "correctAnswer": ["Include label_size=0 appended to the Content-Type key."]
+    }
+  },
+  {
+    "id": "347",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "You have launched a training job but it fails after a few minutes. What is the first thing you should do for troubleshooting?",
+      "answers": [
+        "Go to CloudWatch logs and try to identify the error in the logs for your job.",
+        "Go to CloudTrail logs and try to identify the error in the logs for your job.",
+        "Ensure that your instance type is large enough and resubmit the job in a different region.",
+        "Check to see that your Notebook instance has the proper permissions to access the input files on S3.",
+        "Submit the job with AWS X-Ray enabled for additional debug information."
+      ],
+      "correctAnswer": ["Go to CloudWatch logs and try to identify the error in the logs for your job."]
+    }
+  },
+  {
+    "id": "348",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "We are designing a binary classification model that tries to predict whether a customer is likely to respond to a direct mailing of our catalog. Because it is expensive to print and mail our catalog, we want to only send to customers where we have a high degree of certainty they will buy something. When considering if the customer will buy something, what outcome would we want to minimize in a confusion matrix?",
+      "answers": [
+        "False Negative",
+        "False Positive",
+        "True Negative",
+        "True Positive",
+        "False Affirmative"
+      ],
+      "correctAnswer": ["False Positive"]
+    }
+  },
+  {
+    "id": "349",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "You want to be sure to use the most stable version of a training container. How do you ensure this?",
+      "answers": [
+        "Use the path to the global container repository.",
+        "Use the :latest tag when specifying the ECR container path.",
+        "Use the :1 tag when specifying the ECR container path.",
+        "Use the ECR repository located in US-EAST-2."
+      ],
+      "correctAnswer": ["Use the :1 tag when specifying the ECR container path."]
+    }
+  },
+  {
+    "id": "350",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "When you issue a CreateModel API call using a built-in algorithm, which of the following actions would be next?",
+      "answers": [
+        "SageMaker launches an appropriate inference container for the algorithm selected from the regional container repository.",
+        "SageMaker launches an appropriate training container from the algorithm selected from the regional container repository.",
+        "Sagemaker provisions an EC2 instances using the appropriate AMI for the algorithm selected from the regional container registry.",
+        "SageMaker provisions an EMR cluster and prepares a Spark script for the training job.",
+        "Sagemaker provisions an EC2 instances using the appropriate AMI for the algorithm selected from the global container registry.",
+        "SageMaker launches an appropriate inference container for the algorithm selected from the global container repository."
+      ],
+      "correctAnswer": ["SageMaker launches an appropriate inference container for the algorithm selected from the regional container repository."]
+    }
+  },
+  {
+    "id": "351",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "We are using a k-fold method of cross-validation for our linear regression model. What outcome will indicate that our training data is not biased?",
+      "answers": [
+        "Each subsequent k-fold validation round has an increasing accuracy rate over the one prior.",
+        "Bias is not a concern with linear regression problems as the error function resolves this.",
+        "K-fold is not appropriate for us with linear regression problems.",
+        "All k-fold validation rounds have roughly the same error rate.",
+        "Each subsequent k-fold validation round has a decreasing error rate over the one prior."
+      ],
+      "correctAnswer": ["All k-fold validation rounds have roughly the same error rate."]
+    }
+  },
+  {
+    "id": "352",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 2",
+      "question": "We are running a training job over and over again using slightly different, very large datasets as an experiment. Training is taking a very long time with your I/O-bound training algorithm and you want to improve training performance. What might you consider? (Choose 2)",
+      "answers": [
+        "Make use of pipe mode to stream data directly from S3.",
+        "Convert the data format to an Integer32 tensor.",
+        "Use the SageMaker console to change your training job instance type from an ml.c5.xlarge to a r5.xlarge.",
+        "Convert the data format to protobuf recordIO format.",
+        "Make use of file mode to stream data directly from S3."
+      ],
+      "correctAnswer": ["Make use of pipe mode to stream data directly from S3.",
+        "Convert the data format to protobuf recordIO format."]
+    }
+  },
+  {
+    "id": "353",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "You have been provided with a cleansed and prepared dataset you will be using for a linear regression model. Of these tasks, which would you do first?",
+      "answers": [
+        "Run a randomization process on the data.",
+        "Split the data into testing and training datasets.",
+        "Run a Peterman distribution on the data to sort it properly for linear regression.",
+        "Perform one-hot encoding on the softmax results."
+      ],
+      "correctAnswer": ["Run a randomization process on the data."]
+    }
+  },
+  {
+    "id": "354",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "You are working on a model that tries to predict the future revenue of select companies based on 50 years of historic data from public financial filings. What might be a strategy to determine if the model is reasonably accurate?",
+      "answers": [
+        "Use Random Cut Forest to remove any outliers and rerun the algorithm on the last 20 percent of the data.",
+        "Randomize the training data and reserve 20 percent as a validation set after the training process is completed.",
+        "Use a set of the historic data as testing data to back-test the model and compare results to actual historical results.",
+        "Use a softmax function to invert the historical data then run the validation job from most recent to earliest history."
+      ],
+      "correctAnswer": ["Use a set of the historic data as testing data to back-test the model and compare results to actual historical results."]
+    }
+  },
+  {
+    "id": "355",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "Your company currently has a large on-prem Hadoop cluster that contains data you would like to use for a training job. Your cluster is equipped with Mahout, Flume, Hive, Spark, and Ganglia. How might you most efficiently use this data?",
+      "answers": [
+        "Using EMR, create a Scala script to export the data to an HDFS volume. Copy that data over to an EBS volume where it can be read by the SageMaker training containers.",
+        "Use Mahout on the Hadoop Cluster to preprocess the data into a format that is compatible with SageMaker. Export the data with Flume to the local storage of the training container and launch the training job.",
+        "Ensure that Spark is supported on your Hadoop cluster and leverage the SageMaker Spark library.",
+        "Use Data Pipeline to make a copy of the data in Spark DataFrame format. Upload the data to S3 where it can be accessed by the SageMaker training jobs."
+      ],
+      "correctAnswer": ["Ensure that Spark is supported on your Hadoop cluster and leverage the SageMaker Spark library."]
+    }
+  },
+  {
+    "id": "356",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "You are consulting for a mountain climbing gear manufacturer and have been asked to design a machine learning approach for predicting the strength of a new line of climbing ropes. Which approach might you choose?",
+      "answers": [
+        "You would choose a multi-class classification approach to classify the rope into an appropriate price range.",
+        "You would choose a simulation-based reinforcement learning approach.",
+        "You would choose a binary classification approach to determine if the rope will fail or not.",
+        "You would recommend they do not use a machine learning model.",
+        "You would approach the problem as a linear regression problem to predict the tensile strength of the rope based on other ropes."
+      ],
+      "correctAnswer": ["You would recommend they do not use a machine learning model."]
+    }
+  },
+  {
+    "id": "357",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Modeling",
+      "questionType": "multiple choice 1",
+      "question": "Which of the following mean that our algorithm predicted false but the real outcome was true?",
+      "answers": [
+        "False Negative",
+        "False Positive",
+        "True Positive",
+        "False Affirmative",
+        "True Negative"
+      ],
+      "correctAnswer": ["False Negative"]
+    }
+  }
+]
