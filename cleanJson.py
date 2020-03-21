@@ -6,7 +6,7 @@ fwrite = open("nullLess.json","w")
 
 contents = fread.read()
 
-cleanNewContents = contents.replace("–", "-").replace('—', '-').replace('…', '...').replace('‚', ',').replace('„', '"').replace('‘', "'").replace("’", "'").replace('›', '>').replace('©', '').replace('«', '<<').replace('®', '').replace('¯', '').replace('°', ' degrees').replace("´", "'").replace('»', '>>').replace('×', 'x').replace('÷', '/').replace('¼', '1/4').replace('½', '1/2').replace('¾', '3/4').replace('“', '"').replace('”', '"').replace('ˆ', '^').replace('€', ' pounds').replace('™', ' trade mark')
+cleanNewContents = contents.replace("–", "-").replace('—', '-').replace('…', '...').replace('‚', ',').replace('„', '"').replace('‘', "'").replace("’", "'").replace('›', '>').replace('©', '').replace('«', '<<').replace('®', '').replace('¯', '').replace('°', ' degrees').replace("´", "'").replace('»', '>>').replace('×', 'x').replace('÷', '/').replace('¼', '1/4').replace('½', '1/2').replace('¾', '3/4').replace('“', '"').replace('”', '"').replace('ˆ', '^').replace('€', ' pounds').replace('™', ' trade mark').replace("'", '')
 
 print("contents lenth: ", len(contents))
 print("cleanContents length: ", len(cleanNewContents))
