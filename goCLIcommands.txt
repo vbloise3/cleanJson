@@ -1,0 +1,1 @@
+aws lambda create-function --function-name my-function --runtime go1.x --zip-file fileb://goLambda.zip --handler goLambda --role arn:aws:iam::001178231653:role/service-role/goTest-role-zt9z1iym
