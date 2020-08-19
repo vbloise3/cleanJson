@@ -3,7 +3,7 @@ import json
 import time
 
 # define your stream name
-kpl_stream = 'kinesis-kpl-demo'
+kpl_stream = 'kinesis-kpl-demo2'
 
 # create the Kinesis service reference for your region
 kinesis_client = boto3.client('kinesis', region_name='us-west-2')

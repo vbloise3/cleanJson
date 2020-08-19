@@ -1,34 +1,65 @@
-import boto3
+import sys
 import json
-from datetime import datetime
-import calendar
+import boto3
 import random
-import time
+import datetime
+import pandas as pd
 
-my_stream_name = 'kinesis-kpl-demo'
+# define our Kinesis service using the us-west-2 region
+kinesis = boto3.client('kinesis', region_name='us-west-2')
+def start_process(format_flag):
+        #format_flag = int(format_flag)
+        begin_streaming(format_flag)
 
-kinesis_client = boto3.client('kinesis', region_name='us-west-2')
+# function to produce our streaming data in JSON format
+def produceData():
+    data = {}
+    time_now = datetime.datetime.now()
+    time_now_string = time_now.isoformat()
+    data['EVENT_TIME'] = time_now_string
+    data['ITEM'] = random.choice(['Longboard', 'Onewheel', 'Surfboard', 'Snowboard', 'Paddleboard'])
+    price = random.random() * 100
+    data['PRICE'] = round(price, 2)
+    return data
 
-def put_to_stream(shard_id, property_value, property_timestamp):
-    payload = {
-                'prop': str(property_value),
-                'timestamp': str(property_timestamp),
-                'shard_id': shard_id
-              }
+# function to produce our streaming data in CSV format
+def produceCSVData():
+        data = pd.read_csv("Surveillance.csv")
+        return data
 
-    print (payload)
+def begin_streaming(format_flag):
+        # define the number of data stream elements we wish to create
+        number_of_records = 30
+        record_count = 0
 
-    put_response = kinesis_client.put_record(
-                        StreamName=my_stream_name,
-                        Data=json.dumps(payload),
-                        PartitionKey=shard_id)
+        if format_flag == 'transform':
+                # create the streaming data and send it to our Kinesis Data Stream called kinesis-transform-demo
+                data = produceCSVData()
+                for _, row in data.iterrows(): 
 
-while True:
-    property_value = random.randint(40, 120)
-    property_timestamp = calendar.timegm(datetime.utcnow().timetuple())
-    shard_id = 'aa-bb'
+                        values = ','.join(str(value) for value in row) # join the values together by a ','
 
-    put_to_stream(shard_id, property_value, property_timestamp)
+                        encodedValues = bytes(values, 'utf-8') # encode the string to bytes
+                        print(encodedValues)
+                        kinesis.put_record(
+                                StreamName="kinesis-transform-demo",
+                                Data=encodedValues,
+                                PartitionKey="partitionkey")
+                        record_count += 1
+        elif format_flag == 'format':
+                data = produceData()
+                while record_count < number_of_records:
+                        data = json.dumps(produceData()) #+ 'record # ' + str(record_count)
+                        print(data)
+                        kinesis.put_record(
+                                StreamName="kinesis-firehose-demo",
+                                Data=data,
+                                PartitionKey="partitionkey")
+                        record_count += 1
 
-    # wait for 1 second
-    time.sleep(1)
+if __name__ == "__main__":
+        #print(f"Arguments count: {len(sys.argv)}")
+        #for i, arg in enumerate(sys.argv):
+        #        print(f"Argument {i:>6}: {arg}")
+        format_flag = sys.argv[1]
+        start_process(format_flag)
