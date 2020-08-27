@@ -52,7 +52,7 @@ def begin_streaming(format_flag):
                         data = json.dumps(produceData()) #+ 'record # ' + str(record_count)
                         print(data)
                         kinesis.put_record(
-                                StreamName="kinesis-firehose-demo",
+                                StreamName="kinesis-transform-demo",
                                 Data=data,
                                 PartitionKey="partitionkey")
                         record_count += 1
