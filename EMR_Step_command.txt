@@ -1,0 +1,6 @@
+aws emr add-steps --cluster-id j-10OGJXPRGYIGF --steps Type=spark,Name="EMR_Spark",Args=[-f,s3://go-lambda-bucket/Spark_Code/EMR_Spark.py,-p,INPUT=s3://go-lambda-bucket/Spark_Input/,-p,OUTPUT=s3://go-lambda-bucket/Spark_Output/,$INPUT=s3://go-lambda-bucket/Spark_Input/,$OUTPUT=s3://go-lambda-bucket/Spark_Output]
+
+aws emr add-steps --cluster-id j-10OGJXPRGYIGF --steps Type=spark,Name="EMR_Spark",Args=[-f,s3://go-lambda-bucket/Spark_Code/EMR_Spark.py,-p,INPUT=s3://go-lambda-bucket/Spark_Input/,-p,OUTPUT=s3://go-lambda-bucket/Spark_Output/]
+
+
+aws emr add-steps --cluster-id j-10OGJXPRGYIGF --steps Type=PIG,Name="Pig Program",Args=[-f,s3://go-lambda-bucket/Spark_Code/EMR_Spark.py,-p,INPUT=s3://go-lambda-bucket/Spark_Input/,-p,OUTPUT=s3://go-lambda-bucket/Spark_Output/,$INPUT=s3://go-lambda-bucket/Spark_Input/,$OUTPUT=s3://go-lambda-bucket/Spark_Output/] 

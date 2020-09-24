@@ -1,0 +1,101 @@
+# Link to Configure proxy settings to view websites hosted on the Master Node:
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
+
+# Link to Set up an SSH Tunnel to the Master Node using dynamic port forwarding
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html
+
+# SSH Tunnel
+ssh -i ~/EMRSpark_keypair.pem -N -D 8157 hadoop@ec2-18-237-62-229.us-west-2.compute.amazonaws.com
+
+# Taxi data S3 path
+s3://serverless-analytics/NYC-transportation
+
+# Presto queries
+# compare schema of the csv and parquet tables
+select * from taxi_blog.blog_yellow limit 10;
+select * from taxi_blog.parquet_taxi_data limit 10;
+
+# Find the average fare for trips at each hour of the day and for each day of the month on the Parquet version of the taxi dataset.
+SELECT EXTRACT (HOUR FROM pickup_date) AS hour, avg(fare_amount) AS average_fare FROM taxi_blog.parquet_taxi_data GROUP BY 1 ORDER BY 1;
+
+
+# Compute the number of trips that gave tips in the 10 percent, 15 percent, or higher percentage range
+SELECT TipPrctCtgry
+, COUNT (DISTINCT TripID) TripCt
+FROM
+(SELECT TripID
+, (CASE
+WHEN fare_prct < 0.7 THEN 'FL70'
+WHEN fare_prct < 0.8 THEN 'FL80'
+WHEN fare_prct < 0.9 THEN 'FL90'
+ELSE 'FL100'
+END) FarePrctCtgry
+, (CASE
+WHEN tip_prct < 0.1 THEN 'TL10'
+WHEN tip_prct < 0.15 THEN 'TL15'
+WHEN tip_prct < 0.2 THEN 'TL20'
+ELSE 'TG20'
+END) TipPrctCtgry
+
+FROM
+(SELECT TripID
+, (fare_amount / total_amount) as fare_prct
+, (extra / total_amount) as extra_prct
+, (mta_tax / total_amount) as tip_prct
+, (tolls_amount / total_amount) as mta_taxprct
+, (tip_amount / total_amount) as tolls_prct
+, (improvement_surcharge / total_amount) as imprv_suchrgprct
+, total_amount
+FROM
+(SELECT *
+ , (cast(pickup_longitude AS VARCHAR(100)) || '_' || cast(pickup_latitude AS VARCHAR(100))) as TripID
+ from taxi_blog.parquet_taxi_data
+ WHERE total_amount > 0
+ ) as t
+) as t
+) ct
+GROUP BY TipPrctCtgry;
+
+# Hue Queries of the Taxi data
+# Get average tip per day of the week
+select day_of_week  (pickup_date) as day_of_week, avg(tip_amount) as average_tip from taxi_blog.parquet_taxi_data group by 1 order by 1
+
+# Show schema
+select * from taxi_blog.parquet_taxi_data limit 10
+
+# Compute the number of trips that gave tips in the 10 percent, 15 percent, or higher percentage range
+SELECT TipPrctCtgry
+, COUNT (DISTINCT TripID) TripCt
+FROM
+(SELECT TripID
+, (CASE
+WHEN fare_prct < 0.7 THEN 'FL70'
+WHEN fare_prct < 0.8 THEN 'FL80'
+WHEN fare_prct < 0.9 THEN 'FL90'
+ELSE 'FL100'
+END) FarePrctCtgry
+, (CASE
+WHEN tip_prct < 0.1 THEN 'TL10'
+WHEN tip_prct < 0.15 THEN 'TL15'
+WHEN tip_prct < 0.2 THEN 'TL20'
+ELSE 'TG20'
+END) TipPrctCtgry
+
+FROM
+(SELECT TripID
+, (fare_amount / total_amount) as fare_prct
+, (extra / total_amount) as extra_prct
+, (mta_tax / total_amount) as tip_prct
+, (tolls_amount / total_amount) as mta_taxprct
+, (tip_amount / total_amount) as tolls_prct
+, (improvement_surcharge / total_amount) as imprv_suchrgprct
+, total_amount
+FROM
+(SELECT *
+ , (cast(pickup_longitude AS VARCHAR(100)) || '_' || cast(pickup_latitude AS VARCHAR(100))) as TripID
+ from taxi_blog.parquet_taxi_data
+ WHERE total_amount > 0
+ ) as t
+) as t
+) ct
+GROUP BY TipPrctCtgry

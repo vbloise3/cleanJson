@@ -1,0 +1,23 @@
+# Set up environment
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+
+glueContext = GlueContext(SparkContext.getOrCreate())
+
+# Examine the persons schema
+persons = glueContext.create_dynamic_frame.from_catalog(
+             database="legislators",
+             table_name="persons_json")
+print "Count: ", persons.count()
+persons.printSchema()
+
+# Examine the memberships schema
+memberships = glueContext.create_dynamic_frame.from_catalog(
+                 database="legislators",
+                 table_name="memberships_json")
+print "Count: ", memberships.count()
+memberships.printSchema()

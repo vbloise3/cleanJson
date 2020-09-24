@@ -42,7 +42,7 @@ def begin_streaming(format_flag):
                         encodedValues = bytes(values, 'utf-8') # encode the string to bytes
                         print(encodedValues)
                         kinesis.put_record(
-                                StreamName="kinesis-transform-demo",
+                                StreamName="MySparkStreamSource",
                                 Data=encodedValues,
                                 PartitionKey="partitionkey")
                         record_count += 1
@@ -52,7 +52,7 @@ def begin_streaming(format_flag):
                         data = json.dumps(produceData()) #+ 'record # ' + str(record_count)
                         print(data)
                         kinesis.put_record(
-                                StreamName="kinesis-transform-demo",
+                                StreamName="MySparkStreamSource",
                                 Data=data,
                                 PartitionKey="partitionkey")
                         record_count += 1

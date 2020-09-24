@@ -1,0 +1,30 @@
+#DISTKEY examples:
+select "column", type, encoding, distkey, sortkey
+from pg_table_def where tablename = 'users';
+
+select slice, col, num_values as rows, minvalue, maxvalue
+from svv_diskusage
+where name='users' and col=0 and rows>0
+order by slice, col;
+
+create table userskey distkey(state) as select * from users;
+
+select slice, col, num_values as rows, minvalue, maxvalue from svv_diskusage
+where name = 'userskey' and col=0 and rows>0
+order by slice, col;
+
+#DISTSTYLE EVEN example:
+create table userseven diststyle even as
+select * from users;
+
+select slice, col, num_values as rows, minvalue, maxvalue from svv_diskusage
+where name = 'userseven' and col=0 and rows>0
+order by slice, col;
+
+DISTSTYLE ALL example
+create table usersall diststyle all as
+select * from users;
+
+select slice, col, num_values as rows, minvalue, maxvalue from svv_diskusage
+where name = 'usersall' and col=0 and rows > 0
+order by slice, col;
