@@ -1,178 +1,458 @@
 [
   {
-    "id": "8914",
+    "id": "41",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Security",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for an oil refinery company. Your team is working on a machine learning problem where you need to determine the relationship between oil well depth and oil well production. In order to select the appropriate machine learning algorithm to use to attempt to solve the oil well production problem, you need to gain a better understanding of your data. For example, what is the correlation between your oil well depth data and your oil well production data? When you examine your data visually using the python matplotlib library, you find that your data has what looks like a non-Gaussian distribution of oil well depth and oil well production: graph showing hump shaped scatter plot data. Which correlation coefficient would you use to best summarize the strength of the correlation between your oil well depth and oil well production?",
+      "question": "You are a data scientist working for a company that provides credit card verification services to banks and insurance companies. Your client credit card data is streamed into your S3 data lake on a daily basis in the form of large sets of JSON files. Due to the Personally Identifiable Information (PII) data contained in these JSON files, your company must adhere to the regulations defined in the Payment Card Industry Data Security Standard (PCI DSS). This means you must encrypt the data at rest in your S3 buckets. You also need to recognize and take action on any abnormal data access activity.Which option best satisfies your data governance and compliance controls in the most cost effective manner?",
       "answers": [
-        "Covariance correlation coefficient",
-        "Pearson's correlation coefficient",
-        "Spearman's correlation coefficient",
-        "Polychoric correlation coefficient"
+        "Store the credit card JSON data in DynamoDB with encryption enabled on your tables. Use a Lambda function to determine if any of your compliance rules are violated by scanning the DynamoDB tables. When compliance rule violations are found, send alerts using Simple Notification Service (SNS).",
+        "Store the credit card JSON data in buckets in S3 with encryption enabled. Use a Lambda function to determine if any of your compliance rules are violated by scanning the S3 buckets. When compliance rule violations are found, send alerts using Simple Notification Service (SNS).",
+        "Store the credit card JSON data in buckets in S3 with encryption enabled. Use the AWS Macie service to determine if any of your compliance rules are violated by scanning the S3 buckets. When compliance rule violations are found, use CloudWatch events to trigger alerts sent via Simple Notification Service (SNS).",
+        "Store the credit card JSON data in DynamoDB with encryption enabled on your tables. Use the AWS Macie service to determine if any of your compliance rules are violated by scanning the DynamoDB tables. When compliance rule violations are found, use CloudWatch events to trigger alerts sent via Simple Notification Service (SNS)."
       ],
-      "correctAnswer": ["Spearman's correlation coefficient"]
+      "correctAnswer": ["Store the credit card JSON data in buckets in S3 with encryption enabled. Use the AWS Macie service to determine if any of your compliance rules are violated by scanning the S3 buckets. When compliance rule violations are found, use CloudWatch events to trigger alerts sent via Simple Notification Service (SNS)."]
     }
   },
   {
-    "id": "8915",
+    "id": "42",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Security",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a clothing manufacturer. You have been tasked with building a machine learning model to determine the return on investment (ROI) for advertising a specific clothing line on social media based on the labeled data of past social media campaigns for similar clothing lines. You decide to run a Pearson’s correlation coefficient to better understand your data correlation. When you calculate your Pearson’s correlation coefficient of social media advertising ROI you get a value of 0.35. What conclusions can you draw from this result?",
+      "question": "You are a data scientist working for a company that processes industrial machine operational data for various industrial manufacturers around the globe. You receive streaming data via Kinesis Data Firehose from the various manufacturers. You want to ingest the data into your Splunk cluster to deliver operational intelligence analysis, security analytics, and business performance KPIs for your manufacturing clients. You have installed your Splunk cluster within your VPC. However, you have noticed that the ingestion process of moving your data from Kinesis Data Firehose to your Splunk cluster is failing. Which configuration option will allow your Kinesis Data Firehose stream to move your data into your Splunk cluster?",
       "answers": [
-        "There is a favorable relationship between your past social media advertising and corresponding campaign ROI.",
-        "There is an unfavorable relationship between your past social media advertising and corresponding campaign ROI.",
-        "There is no correlation between past social media advertising and the associated ROI.",
-        "You cannot declare a notable correlation with confidence based on the resulting coefficient."
+        "Change the Splunk cluster security group to allow access from Kinesis service IPs",
+        "Change your S3 bucket policy to allow Kinesis Data Firehose to write to your S3 bucket to allow access from service IPs",
+        "Verify the IAM role assigned to your Kinesis Data Firehose stream allows access from service IPs",
+        "Change your Splunk cluster ACL to allow access from Kinesis service IPs"
       ],
-      "correctAnswer": ["You cannot declare a notable correlation with confidence based on the resulting coefficient."]
+      "correctAnswer": ["Change the Splunk cluster security group to allow access from Kinesis service IPs"]
     }
   },
   {
-    "id": "8916",
+    "id": "43",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
-      "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for the social media software development division of your company. The social media features of your web applications allow users to post text messages and pictures about their experiences with your company’s products. You need to be able to quickly block posts that contain inappropriate words. You have defined a vocabulary of words deemed inappropriate for your site. Which algorithm is best suited to your task?",
+      "subcategory": "Security",
+      "questionType": "multiple choice 2",
+      "question": "You are a data scientist working for a large hedge fund. Your hedge fund managers rely on analytics data produced from the S3 data lake you have built that houses trade data produced by the firm’s various traders. You are configuring a public Elasticsearch domain that will allow your hedge fund managers to gain access to your trade data stored in your data lake. You have given your hedge fund managers Kibana to allow them to use visualizations you’ve produced to manage their traders activity.When your hedge fund managers first test out your Kibana analytics visualizations, you find that Kibana cannot connect to your Elasticsearch cluster. Which options are ways to securely give your hedge fund managers access to your Elasticsearch cluster via their Kibana running on their local desktop? (SELECT TWO)",
       "answers": [
-        "Multinomial Naive Bayes",
-        "Bernoulli Naive Bayes",
-        "Gaussian Naive Bayes",
-        "Polychoric Naive Bayes"
+        "Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Add an IP-based access IAM policy which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address.",
+        "Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Configure an open access IAM policy which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address.",
+        "Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Configure a security group which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address.",
+        "Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Configure a security group which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address.",
+        "Add an IP-based access IAM policy and use a security group which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address."
       ],
-      "correctAnswer": ["Bernoulli Naive Bayes"]
+      "correctAnswer": ["Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Add an IP-based access IAM policy which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address.",
+      "Configure a proxy server that acts as an intermediary between your Kibana users and your Elasticsearch cluster. Configure a security group which allows requests from your user’s IP address to gain access to your Elasticsearch cluster through the proxy server’s IP address."]
     }
   },
   {
-    "id": "8917",
+    "id": "44",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Security",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for the social media software development division of your company. The social media features of your web applications allow users to post text messages and pictures about their experiences with your company’s products. You need to be able to quickly block posts that contain inappropriate words. You have defined a vocabulary of words deemed inappropriate for your site. Which algorithm is best suited to your task?",
+      "question": "You have just landed a new job as a data scientist for a worldwide retail and wholesale business with distribution centers located all around the globe.Your first assignment is to build a data collection system that stores all of the company’s product distribution performance data from all of their distribution centers into S3. You have been given the requirement that the data collected from the distribution centers must be encrypted at rest. You also have to load your distribution center data into your company’s analytics EMR cluster on a daily basis so that your management team can produce daily Key Performance Indicators (KPIs) for the various regional distribution centers.Which option best meets your encryption at rest requirement?",
       "answers": [
-        "Multinomial Naive Bayes",
-        "Bernoulli Naive Bayes",
-        "Gaussian Naive Bayes",
-        "Polychoric Naive Bayes"
+        "Use an AWS KMS customer master key (CMK) for server side encryption when writing your distribution center performance data to S3. Create an IAM role that allows your analytics EMR cluster to have permission to access your S3 buckets and to use the AWS KMS CMK.",
+        "Use a customer provided key (SSE-C) for server side encryption when writing your distribution center performance data to S3. Create an IAM role that allows your analytics EMR cluster to have permission to access your S3 buckets and to use the SSE-C key.",
+        "Use client side encryption before you write your distribution center performance data to your S3 buckets. Save the client side encryption key in your analytics EMR cluster. Create an IAM role that allows your analytics EMR cluster to have permission to access your S3 buckets and to use the client side key.",
+        "Write your distribution center performance data to S3 and encrypt the data using a Kinesis Analytics job as it’s being written to the S3 buckets using server side encryption. Save the server side encryption key in one of your S3 buckets. Create an IAM role that allows your analytics EMR cluster to have permission to access your S3 buckets and to use the server side key."
       ],
-      "correctAnswer": ["Bernoulli Naive Bayes"]
+      "correctAnswer": [
+        "Use an AWS KMS customer master key (CMK) for server side encryption when writing your distribution center performance data to S3. Create an IAM role that allows your analytics EMR cluster to have permission to access your S3 buckets and to use the AWS KMS CMK."
+      ]
     }
   },
   {
-    "id": "8918",
+    "id": "45",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a government agency that uses a series of web application forms to gather citizen data for census purposes. You have been tasked with finding novel user entries as they are entered by your citizens. Where a novel user entry is defined as an outlier compared to the established set of citizen entries in your datastore. You have cleaned your citizen datastore to remove any existing outliers. You now need to build a model to determine whether new entries on your web application are novel. Which algorithm best fits these requirements?",
+      "question": "You work as a data scientist for a government agency contracting firm that collects real-time polling data for various elections and public opinion items. You have built a streaming data collection architecture using Kinesis Data Streams and its Kinesis Producer Library (KPL). Your producer code is using the addUserRecord API call to add records which are eventually flushed to your Kinesis Data stream using the PutRecords API call. You have used the default settings for your PutRecords API KPL calls. Your Kinesis Data Stream PutRecords API call is occasionally experiencing partial and sometimes full failures. You have noticed that your data collection system sometimes experiences excessive retries, sometimes referred to as “retry spamming.” What is the best approach to mitigate the request spamming resulting from your PutRecords retries?",
       "answers": [
-        "Multinomial Naive Bayes",
-        "Bernoulli Naive Bayes",
-        "Principal Component Analysis",
-        "Support Vector Machine"
+        "Implement rate limiting for the offending producer by setting the token limit to 50% higher than the shard limit.",
+        "Expand the capacity of your Kinesis Data Stream while also implementing a suitable partition key strategy",
+        "Implement rate limiting for the offending producer by setting the threshold to 50% higher than the shard limit.",
+        "Implement rate limiting for the offending producer by setting the threshold to 30% higher than the shard limit."
       ],
-      "correctAnswer": ["Support Vector Machine"]
+      "correctAnswer": ["Expand the capacity of your Kinesis Data Stream while also implementing a suitable partition key strategy"]
     }
   },
   {
-    "id": "8919",
+    "id": "46",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a translation service company. Your company offers several mobile applications used for translation on smartphones and tablets. As a new feature of one of your translation apps, your company is offering a feature to generate handwritten notes from spoken text. Which algorithm is the best choice for your new feature?",
+      "question": "You work as a data scientist for a data analytics firm that collects data for various industries, including the airline industry. Your airline clients wish to have your firm create analytics for use in machine learning models that predict air travel in the global market. To this end, you have created a Kinesis Data Streams data collection system that gathers flight data for use in your analysis. You are writing a consumer application, using the Kinesis Client Library (KCL), that will consume the flight data stream records and process them before placing the data into your S3 data lake. You need to handle the condition of when your consumer application fails in the middle of reading a data record from the data stream. What is the most efficient way to handle this condition?",
       "answers": [
-        "Long Short-Term Memory (LSTM)",
-        "Convolutional Neural Network",
-        "Multilayer Perceptron",
-        "Support Vector Machine"
+        "Use a Lambda function to monitor the KCL consumer application’s log and restart the consumer application on failure",
+        "Use the KCL application state tracking feature implemented in the global DynamoDB table",
+        "Use the KCL application state tracking feature implemented in the DynamoDB table associated with the KCL application that failed when reading",
+        "Use the KCL application state tracking feature implemented in the DynamoDB table associated with the shard that the KCL consumer application was reading from when it failed"
       ],
-      "correctAnswer": ["Long Short-Term Memory (LSTM)"]
+      "correctAnswer": ["Use the KCL application state tracking feature implemented in the DynamoDB table associated with the KCL application that failed when reading"]
     }
   },
   {
-    "id": "8920",
+    "id": "47",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a healthcare company where you are building a cancer detection model using a linear regression algorithm. You have gathered your data of hundreds of thousands of patients with over 100 features. However, when you train your model you notice that it appears to be over-fitting your data. Which technique can you use to simultaneously correct the over-fitting and reduce your model complexity by removing less relevant features?",
+      "question": "You work as a data scientist for a financial services firm that is building an automated trading system using data streamed from market data sources. The market data records the market data sources produce are small in size (512 bytes) and are sent very rapidly (1,500 records per second) to your Kinesis Producer Library based producer application. You have your data collection system configured like this: Market data source -> KPL producer application -> Kinesis Data stream -> Kinesis Data Firehose stream -> Lambda -> S3Your Lambda function transforms the market data for use in your automated trading system. At the size and rate of production of your market data records, your data collection pipeline is constrained. Why is it constrained, and what can you do to remove the constraint?",
       "answers": [
-        "Use Ridge Regression",
-        "Use Lasso Regression",
-        "Use Stochastic Gradient Descent",
-        "Use a Gaussian Process"
+        "The pipeline is constrained because a Kinesis Data Streams shard has a limit of supporting up to 1,000 records per second, or 1 MB throughput. Increase the throughput by using KPL aggregation to aggregate the 1,500 market data records into 10 Kinesis Data Stream records, bringing the records per second to 10, each of which will hold 76 KB.",
+        "The pipeline is constrained because you can only have 50 Kinesis Data Firehose delivery streams per region. Increase the throughput by using Service Quota to request a quota increase.",
+        "The pipeline is constrained because your Lambda function has a limit of only 15 minutes runtime. Increase the Lambda function capacity by leveraging the messaging fanout pattern for Lambda using SNS.",
+        "The pipeline is constrained because you are attempting to send greater than 1 MB of data per second through your shard. Compress your records in your KPL code before sending your records to your Kinesis Data Streams stream. This will remove the message volume constraint."
       ],
-      "correctAnswer": ["Use Lasso Regression"]
+      "correctAnswer": ["The pipeline is constrained because a Kinesis Data Streams shard has a limit of supporting up to 1,000 records per second, or 1 MB throughput. Increase the throughput by using KPL aggregation to aggregate the 1,500 market data records into 10 Kinesis Data Stream records, bringing the records per second to 10, each of which will hold 76 KB."]
     }
   },
   {
-    "id": "8921",
+    "id": "48",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a sports gambling company where you are responsible for building a machine learning model to predict the point spread and over/under of NCAA and NFL games. You have built your custom deep learning model using TensorFlow in SageMaker. You have attempted to train your model on a single GPU but you have noticed that the amount of game data you need to train with exceeds the single GPU capacity. How can you change your machine learning code to get it to use multiple GPUs with the least amount of effort on your part?",
+      "question": "You work as a data scientist for an oil refining company. Your team is building a data lake in S3 which will be used to do complex analysis of crude oil chemical compounds. Your company will use this analysis to improve their product to make it more cost effective. Your data lake will have many disparate sources of compound data that need to be loaded into your S3 buckets. You have decided to use AWS Glue to crawl your data sources to allow for the use of Glue transform jobs to process the data while loading it into your S3 buckets.When you run your Glue crawler on one of your RDS instances you are getting a resource unavailable error. What might be the root cause of this problem?",
       "answers": [
-        "Rewrite your model to use the Factorization Machines algorithm",
-        "Rewrite your code in PySpark and use spark to run your code across multiple GPUs",
-        "Add Horovod to your code and use its distributed deep learning training framework for TensorFlow",
-        "Rewrite your model to use the DeepAR Forecasting algorithm"
+        "The ApplyMapping transform is able to map the source columns from your DynamicFrame to your target columns.",
+        "You have tried to use a JDBC connection to access your RDS instance. Glue crawlers connect to RDS instances using the RDS native interface.",
+        "You have not opened up all ports to TCP on your database security group.",
+        "Your custom classifier used by your Glue crawler is not recognizing the structure of your RDS data."
       ],
-      "correctAnswer": ["Add Horovod to your code and use its distributed deep learning training framework for TensorFlow"]
+      "correctAnswer": ["You have not opened up all ports to TCP on your database security group."]
     }
   },
   {
-    "id": "8922",
+    "id": "49",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a credit card company where you are building a fraud detection model. You have your model built using the XGBoost algorithm and you are now attempting to find the best version of your model by performing automatic model tuning. You are creating your hyperparameter tuning job and you need to select the appropriate technique the job will use to find your best hyperparameters. You wish to run the least number of hyperparameter tuning training jobs as possible. Which hyperparameter tuning technique is best suited to your requirements?",
+      "question": "You work as a data scientist for an alternative energy source company. Your company has several fields of wind turbines located across several continents and in the open Atlantic and Pacific oceans. You are responsible for implementing the data collection system that feeds turbine sensor data to your analytics platform in real-time for use in preventative maintenance analytics applications for the turbines. These analytics applications are used to schedule maintenance in response to changes in the turbine sensor data in real-time. This allows your company to address turbine low output situations, thereby helping to maximize revenue. Which data collection architecture handles the frequency, volume, and source of your data while also delivering the real-time analytics needed by the turbine preventive maintenance analytics application in the most cost effective manner?",
       "answers": [
-        "Bayesian optimization",
-        "Bayesian classification",
-        "Random search",
-        "Logistic regression"
+        "Sensor data -> AWS IoT -> S3 -> Lambda ->  AWS Batch -> EMR -> Turbine Analytics App",
+        "Sensor data -> AWS IoT -> S3 -> Lambda -> Kinesis Data Firehose -> Redshift -> Turbine Analytics App",
+        "Sensor data -> AWS IoT -> Kinesis Data Firehose -> Lambda -> Redshift -> Turbine Analytics App",
+        "Sensor data -> AWS IoT -> Kinesis Data Firehose -> Lambda -> DynamoDB -> Turbine Analytics App"
       ],
-      "correctAnswer": ["Bayesian optimization"]
+      "correctAnswer": ["Sensor data -> AWS IoT -> Kinesis Data Firehose -> Lambda -> Redshift -> Turbine Analytics App"]
     }
   },
   {
-    "id": "8923",
+    "id": "50",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Collection",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a social media company where your team is responsible for building a machine learning model to classify the images that your users submit to your service. You have built a neural network to classify the images. You are now performing mini-batch training of the neural network and you see that your resulting training accuracy is oscillating. What is a likely reason for this issue?",
+      "question": "You work as a data scientist for a utility company that is implementing real-time management of its electricity meters at the homes of its customers. These meters have sensors on them that transmit usage and other measurements back to your data collection system using AWS IoT. Your management team wishes to use this IoT data to perform analytics and build Key Performance Indicator (KPI) dashboards to help give better service to their customers. You do not need to transform the IoT data before feeding it into your Redshift cluster. Which architecture option is the most cost effective and efficient?",
       "answers": [
-        "The epochs hyperparameter is set too low",
-        "The momentum hyperparameter is set to 0.9",
-        "The dropout hyperparameter is set to 0",
-        "The learning_rate hyperparameter is set too high"
+        "Sensor data -> AWS IoT -> KPL Application -> Redshift -> BI Tools",
+        "Sensor data -> AWS IoT -> S3 -> Lambda -> Kinesis Data Firehose -> Redshift -> BI Tools",
+        "Sensor data -> AWS IoT -> Kinesis Data Firehose -> Lambda -> Redshift -> BI Tools",
+        "Sensor data -> AWS IoT -> Kinesis Data Firehose -> S3 -> Redshift -> BI Tools"
       ],
-      "correctAnswer": ["The learning_rate hyperparameter is set too high"]
+      "correctAnswer": ["Sensor data -> AWS IoT -> Kinesis Data Firehose -> S3 -> Redshift -> BI Tools"]
     }
   },
   {
-    "id": "8924",
+    "id": "51",
     "category": "Cloud Concepts",
     "info": {
-      "subcategory": "ML Simulated Exam Questions",
+      "subcategory": "Storage and Data Management",
       "questionType": "multiple choice 1",
-      "question": "You are a machine learning specialist working for a retail clothing conglomerate. Your company sells many lines of clothing, such as budget casual wear, office casual wear, office formal wear, etc. For each of your existing products in these categories you have been using autoregressive integrated moving average (ARIMA) models to forecast demand. You now wish to forecast demand for a new product based on the collective historical time series data from your existing products. Which approach should you take to forecast demand for your new product?",
+      "question": "You work as a lead data scientist on a development team in a large consulting firm. Your team is working on a contract for a client that needs to gather key statistics from their application server logs. This data needs to be loaded into their S3 data lake for use in analytics applications.Your data collection process requires transformation of the streamed data records as they are ingested through the collection process. You also have the requirement to keep an unaltered copy of every source record ingested by your data collection process.Which option meets all of your requirements in the most efficient manner?",
       "answers": [
-        "Forecast demand for your new product using the XGBoost algorithm",
-        "Forecast demand for your new product using the DeepAR algorithm",
-        "Forecast demand for your new product using an ARIMA model",
-        "Forecast demand for your new product using k-means clustering"
+        "Kinesis Data Stream KPL application streams source data into Kinesis Data Firehose. Kinesis Data Firehose invokes a Lambda function which transforms the data record. Kinesis Data Firehose then writes the transformed record to the S3 data lake destination. Kinesis Data Firehose saves the unaltered record to another S3 destination.",
+        "Amazon Kinesis Agent streams source data into Kinesis Data Firehose. Kinesis Data Firehose invokes a Lambda function which transforms the data record. Kinesis Data Firehose then writes the transformed record to the S3 data lake destination. Kinesis Data Firehose saves the unaltered record to another S3 destination.",
+        "Amazon Kinesis Agent streams source data into Kinesis Data Firehose. Kinesis Data Firehose invokes a Lambda function which transforms the data record. The Lambda function then writes the transformed record to the S3 data lake destination. Kinesis Data Firehose saves the unaltered record to another S3 destination.",
+        "Amazon Kinesis Agent streams source data into Kinesis Data Firehose. Kinesis Data Firehose transforms the data record and writes the transformed record to the S3 data lake destination. Kinesis Data Firehose saves the unaltered record to another S3 destination."
       ],
-      "correctAnswer": ["Forecast demand for your new product using the DeepAR algorithm"]
+      "correctAnswer": ["Amazon Kinesis Agent streams source data into Kinesis Data Firehose. Kinesis Data Firehose invokes a Lambda function which transforms the data record. Kinesis Data Firehose then writes the transformed record to the S3 data lake destination. Kinesis Data Firehose saves the unaltered record to another S3 destination."]
+    }
+  },
+  {
+    "id": "52",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist on a development team in a large bank. The bank has asked your team to move your existing on-prem customer account Oracle database to a PostgreSQL RDS instance running in your company’s AWS account. In the process of moving your on-prem database to your AWS RDS instance you cannot take your Oracle database offline. Also, you need to perform some transformations of your database schema as you move to your new instance, including adding new primary keys to certain columns of the customer table and changing some of the data types of some of the target columns.How would you use AWS services to accomplish this transformation in the most efficient manner?",
+      "answers": [
+        "Create a Glue crawler that crawls the on-prem Oracle instance and catalogs the schema of the customers data. Then write a Glue ETL job that extracts the data from the Oracle instance, transforms the tables and creates the primary key, and finally loads the data into your PostgreSQL RDS instance.",
+        "Create an AWS Schema Conversion Tool (SCT) project that defines the transformations you need to accomplish. Use the AWS SCT to copy your on-prem Oracle database to your RDS PostgreSQL database.",
+        "Use the AWS Database Migration Service (DMS) to migrate your Oracle database to your PostgreSQL RDS instance. Use the ongoing replication change data capture (CDC) feature of DMS to allow the migration to capture ongoing changes to your source database as you copy to your target database. Perform your transformations using the table-mapping rules defined in your DMS tasks.",
+        "Use an Amazon Kinesis Agent to stream your source data into Kinesis Data Firehose. Kinesis Data Firehose transforms the data record and writes the transformed data into your RDS PostgreSQL instance."
+      ],
+      "correctAnswer": ["Use the AWS Database Migration Service (DMS) to migrate your Oracle database to your PostgreSQL RDS instance. Use the ongoing replication change data capture (CDC) feature of DMS to allow the migration to capture ongoing changes to your source database as you copy to your target database. Perform your transformations using the table-mapping rules defined in your DMS tasks."]
+    }
+  },
+  {
+    "id": "53",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a streaming music service. Your company wishes to catalog and analyze the metadata about the most frequently streamed songs in their catalog. To do this you have created a Glue crawler that you have scheduled to crawl the company song database every hour. You want to load the song play statistics and metadata into your Redshift data warehouse using a Glue ETL job as soon as the crawler completes.What is the most efficient way to automatically start the Glue ETL job as soon as the crawler completes?",
+      "answers": [
+        "Create a Glue Workflow. Create two triggers, one for the crawler and one for the ETL job. The workflow will start the crawler automatically based on a timer trigger. Once the crawler completes, the second trigger, an event trigger, will watch for the event of the crawler completing and start the ETL job. The ETL job will transform and load the data into your Redshift cluster.",
+        "Create a Glue trigger, a Lambda function, and a CloudWatch events rule. The Glue trigger is a timed based event that triggers every hour and starts the crawler. The CloudWatch event watches for the crawler state change. When the crawler state changes to complete, the CloudWatch event automatically triggers the Lambda function which starts the Glue ETL job. The ETL job will transform and load the data into your Redshift cluster.",
+        "Create two Glue triggers. The first Glue trigger is a timed based event that triggers every hour and starts the crawler. The second Glue trigger watches for the crawler to reach the COMPLETED state and then starts the ETL job. The ETL job will transform and load the data into your Redshift cluster.",
+        "Create two Glue triggers. The first Glue trigger is a timer based event that triggers every hour and starts the crawler. The second Glue trigger watches for the crawler to reach the SUCCEEDED state and then starts the ETL job. The ETL job will transform and load the data into your Redshift cluster."
+      ],
+      "correctAnswer": ["Create two Glue triggers. The first Glue trigger is a timer based event that triggers every hour and starts the crawler. The second Glue trigger watches for the crawler to reach the SUCCEEDED state and then starts the ETL job. The ETL job will transform and load the data into your Redshift cluster."]
+    }
+  },
+  {
+    "id": "54",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a mobile gaming company. Your company wants to run analytics on their gaming community’s in-app purchase rates. Specifically, they want to be able to use data collected from their users' gaming activity to feed a machine learning model. The machine learning model will allow them to classify gamers in various categories to be used in a recommendation engine that will recommend in-app purchases based on gamer activity.You are building a Glue ETL job to extract the gaming data from your player data DynamoDB database and perform machine learning transformations on the data such as feature engineering. When defining your Glue ETL job properties, which worker type should you choose for your Glue data processing units (DPUs) so that you optimize cost while still delivering the correct type of processor for your workload?",
+      "answers": [
+        "Standard",
+        "G.1X",
+        "G.2X",
+        "M.2X"
+      ],
+      "correctAnswer": ["G.2X"]
+    }
+  },
+  {
+    "id": "55",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 2",
+      "question": "You work as a data scientist for a financial services company that uses market data producer services to calibrate their market trading systems. You receive trade data, equity and fixed income security pricing data, and other time series data that requires proper ordering when received into your data lake. You and your data science team use the data lake to build analytics applications used by your trading management team to assess trading risk and overall firm liquidity. As the data you receive from your market data providers is streamed at a message per second rate, your data analytics applications that use your data lake can tolerate occasionally missing a data record. Which AWS streaming service will meet your needs for ingesting the market data in the most efficient manner? (SELECT TWO)",
+      "answers": [
+        "Kinesis Data Streams",
+        "Kinesis Data Firehose",
+        "MSK",
+        "SQS FIFO",
+        "SQS Standard"
+      ],
+      "correctAnswer": ["Kinesis Data Streams",
+      "MSK"]
+    }
+  },
+  {
+    "id": "56",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a sports analytics company that produces statistics for use in sports media production. You receive streaming data from all of the major sports leagues around the world. The data typically is streamed into your data collection pipeline from the providers in either the KPL or GZIP format. Your sports analytics are done in real-time using Kinesis Data Analytics as you ingest the streamed data. On several data sources you need to expand data elements represented as strings into multiple columns. This allows your analytics to present the statistics at a more granular level.Which data collection architecture best suits your real-time analytics requirements with the least amount of work on your part?",
+      "answers": [
+        "Use Kinesis Data Firehose to ingest the data. Use the Kinesis Data Firehose data transformation feature that uses Lambda to convert the data from the KPL or GZIP format into either the XML, TSV, or CSV format. Also, use the Lambda Kinesis Data Firehose data transformation feature to expand the strings into separate columns.",
+        "Use Kinesis Data Streams to ingest the data. Use the Kinesis Data Streams data transformation feature that uses Lambda to convert the data from the KPL or GZIP format into either the JSON, TSV, or CSV format. Also, use the Lambda Kinesis Data Streams data transformation feature to expand the strings into separate columns.",
+        "Use Kinesis Data Firehose to ingest the data. Use the Kinesis Data Firehose data transformation feature that uses Lambda to convert the data from the KPL or GZIP format into either the CSV, TSV, or JSON format. Also, use the Lambda Kinesis Data Firehose data transformation feature to expand the strings into separate columns.",
+        "Use Kinesis Data Firehose to ingest the data. Use the Kinesis Data Firehose data transformation feature that uses Lambda to convert the data from the KPL or GZIP format into either the CSV, TSV, or SAML format. Also, use the Lambda Kinesis Data Firehose data transformation feature to expand the strings into separate columns."
+      ],
+      "correctAnswer": ["Use Kinesis Data Firehose to ingest the data. Use the Kinesis Data Firehose data transformation feature that uses Lambda to convert the data from the KPL or GZIP format into either the CSV, TSV, or JSON format. Also, use the Lambda Kinesis Data Firehose data transformation feature to expand the strings into separate columns."]
+    }
+  },
+  {
+    "id": "57",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Storage and Data Management",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a healthcare company that wishes to create a data lake from its various data stores located throughout their siloed infrastructure. They have several data stores in DynamoDB, Oracle, and flat files on a file share. You have been tasked with loading their customer data from one of their DynamoDB tables into your EMR cluster.You have written a MapReduce job using Hive for which you wish to use all of your nodes in your EMR cluster to copy your DynamoDB table data into your HDFS. You wish to create your files on HDFS in the CSV format.Which set of commands will execute this parallel copy for you?",
+      "answers": [
+        "INSERT OVERWRITE TABLE hdfs_customers_csvSELECT * FROM ddb_customers",
+        "INSERT OVERWRITE DIRECTORY 'hdfs:///user/hadoop/hive-customers'SELECT * FROM ddb_customers;",
+        "CREATE EXTERNAL TABLE hdfs_customers_csv(customer_id, …)LOCATION ‘hdfs://user/hadoop/hive-customers’;INSERT OVERWRITE TABLE hdfs_customers_csvSELECT * FROM ddb_customers",
+        "CREATE EXTERNAL TABLE hdfs_customers_csv(customer_id, …)ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’LOCATION ‘hdfs://user/hadoop/hive-customers’;INSERT OVERWRITE TABLE hdfs_customers_csvSELECT * FROM ddb_customers"
+      ],
+      "correctAnswer": ["CREATE EXTERNAL TABLE hdfs_customers_csv(customer_id, …)ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’LOCATION ‘hdfs://user/hadoop/hive-customers’;INSERT OVERWRITE TABLE hdfs_customers_csvSELECT * FROM ddb_customers"]
+    }
+  },
+  {
+    "id": "58",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Storage and Data Management",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data architect for a literature publishing firm that publishes literature (novels, non-fiction, poetry, etc.) around the globe in several different languages. Your management team has moved your published format to almost exclusively digital to allow for immediate delivery of their product to their consumers. The platforms used by your customers to read your literature generate many IoT data messages as the customers interact with your literature. This data flows into your data collection system at very high volume levels. You have been given the requirements that the IoT data must be housed in your corporate data lake and that the data must be highly available. You have also been asked to transform the IoT data and group the data records into batches according to the literature’s published language. Your most important data collection system characteristics are durability of the data and data lake retrieval performance. You have built a Kinesis Data Stream to collect the IoT data. Which of the following options will meet your requirements in the most cost optimized, durable, and performant manner?",
+      "answers": [
+        "Construct multiple Kinesis Data Firehose streams while using custom shards to batch the data. The Kinesis Data Firehose will write the data stream to your data lake.",
+        "Construct a Kinesis Data Firehose that receives the IoT record data from the Kinesis Data Stream. The Kinesis Data Firehose buffers and converts the data to partitioned ORC files and writes them to your data lake.",
+        "Write a Lambda function to accept batches of IoT records from the Kinesis Data Stream. The Lambda function converts the data records to CSV and then writes the CSV data to your data lake.",
+        "Write a Spark streaming job in your EMR cluster that reads your IoT data records from your Kinesis Data Stream. The Spark job converts the data to partitioned ORC files and writes them to your data lake."
+      ],
+      "correctAnswer": ["Construct a Kinesis Data Firehose that receives the IoT record data from the Kinesis Data Stream. The Kinesis Data Firehose buffers and converts the data to partitioned ORC files and writes them to your data lake."]
+    }
+  },
+  {
+    "id": "59",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Storage and Data Management",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data architect for a take-out meal delivery service startup that interacts with its users via a mobile app. The app connects users with local restaurants that offer take-out meal service within the user’s local area. The service needs to scale very rapidly when demand for take-out meals spikes for any reason, such as dine-in restaurant service being suddenly unavailable in an area for an extended period of time. So your storage architecture that houses the customer and restaurant information must scale efficiently for cost and performance to handle increased request volume when demand increases rapidly. Your storage architecture must operate at low latency, provide fast throughput, and be highly durable.You have architected your current design of your mobile app to use REST APIs to communicate with your back-end storage solution. What set of AWS services will give you the low latency, high throughput, scalability, and durability you need to satisfy your requirements?",
+      "answers": [
+        "Use API Gateway to serve your REST API requests. Lambda to implement your REST APIs. Use Redshift, an analytics storage solution, to house your customer and restaurant data store.",
+        "Use Lambda to implement and serve your REST API requests. Use DynamoDB, an operational storage solution, to house your customer and restaurant data store.",
+        "Use API Gateway to serve your REST API requests. Lambda to implement your REST APIs. Use Neptune, an operational storage solution, to house your customer and restaurant data store.",
+        "Use API Gateway to serve your REST API requests. Lambda to implement your REST APIs. Use DynamoDB, an operational storage solution, to house your customer and restaurant data store."
+      ],
+      "correctAnswer": ["Use API Gateway to serve your REST API requests. Lambda to implement your REST APIs. Use DynamoDB, an operational storage solution, to house your customer and restaurant data store."]
+    }
+  },
+  {
+    "id": "60",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist working for a research lab that is building blood analysis devices that allow for the testing of multiple medical conditions using a small blood sample. This system requires that you build several analytics visualizations that allow your research scientists to make decisions on whether a given sample contains statistically relevant medical condition indicators. The analytics visualizations require low latency data access that is 100% accurate. Data store response time is important. However, given the nature of the application, accuracy is your most important requirement, even if it means sacrificing response time. You have built your data store for your blood analytics visualization solution with DynamoDB as your data store. However, on occasion your visualizations show inaccurate data for your medical condition statistical charts. What might be the root cause of this?",
+      "answers": [
+        "Your composite primary key range attribute models hierarchical (one-to-many) relationships, causing data to be occasionally retrieved prior to a corresponding write.",
+        "Your primary keys are partitioned using a hash function, causing data to be occasionally be retrieved from the wrong partition.",
+        "The consistency model configuration of your table is using eventually consistent reads, causing data to be occasionally retrieved prior to a corresponding write.",
+        "The consistency model configuration of your table is using strongly consistent reads, causing data to be occasionally retrieved prior to a corresponding write."
+      ],
+      "correctAnswer": ["The consistency model configuration of your table is using eventually consistent reads, causing data to be occasionally retrieved prior to a corresponding write."]
+    }
+  },
+  {
+    "id": "61",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for the US federal government. Your team’s latest assignment is to build a data analytics visualization solution that shows known outbreaks of infectious disease by geographic region of the US over specified periods of time, such as by day/week/month. These geographic regions range as follows: region, state, county, city, all the way down to neighborhood.Your team lead has decided to use DynamoDB for your data store based on its consistent single-digit millisecond latency. Given your unique requirements, which technique allows you to reach the maximum DynamoDB performance?",
+      "answers": [
+        "Scan your secondary index using a limit size of 50 items. Then filter on the geographic area you wish to visualize: [region]#[state]#[county]#[city]#[neighborhood]",
+        "Perform a parallel scan using multiple process threads to multithread your scan. Then filter on the geographic area you wish to visualize: [region]#[state]#[county]#[city]#[neighborhood]",
+        "Perform a parallel scan using segments. Set your TotalSegments to 15 workers, having each worker scan its own segment.",
+        "Use a primary key with a composite sort key of [region]#[state]#[county]#[city]#[neighborhood]."
+      ],
+      "correctAnswer": ["Use a primary key with a composite sort key of [region]#[state]#[county]#[city]#[neighborhood]."]
+    }
+  },
+  {
+    "id": "62",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a global securities trading firm. Your management team needs to track all trading activity through the visualization of analytics data, such as Key Performance Indicators (KPIs), for all of its regional offices around the globe. Each regional office reads from and writes to your trading database at high frequency throughout the global trading day windows. Also, each regional manager needs to have analytics visualizations of KPIs that compare his/her region to all of the other regions around the globe in near real-time.What data collection and storage solution best meets your requirements?",
+      "answers": [
+        "Leverage the global database capability of the RDS MySQL database service to house your trading data. Create a master database in your headquarters region, and secondary database instances in your other regions.",
+        "Leverage the global database capability of the Aurora database service to house your trading data. Create a master database in your headquarters region, and secondary database instances in your other regions.",
+        "Leverage the global tables capability of DynamoDB to house your trading data. Make your tables available in the corporate headquarters region as well as in your regional office regions.",
+        "Leverage the serverless database capability of the Aurora database service to house your trading data. Create a master database in your headquarters region, and secondary database instances in your other regions."
+      ],
+      "correctAnswer": ["Leverage the global tables capability of DynamoDB to house your trading data. Make your tables available in the corporate headquarters region as well as in your regional office regions."]
+    }
+  },
+  {
+    "id": "63",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a television broadcast network that has started building machine learning based data visualizations to be used in its political analysis broadcast segments. These data visualizations require data analytics to be performed with the assistance of your machine learning model inference engine. Your data used to augment the machine learning inferences needs to be stored in a data storage solution that has the following freshness characteristics:It needs to be optimized for storing key/value pairs and as a document store. It needs to perform at the highest request rate you can provide. It needs to perform at very low latency. It needs to be able to store petabytes of data. You need to optimize for cost. You need to run your data analytics application from within your VPC. Your solution needs to be highly available, therefore you have a data store requirement of availability across 3 availability zones.Which database solution matches the freshness requirements of your data?",
+      "answers": [
+        "Elasticache",
+        "DynamoDB plus DAX",
+        "Aurora",
+        "RDS",
+        "Neptune",
+        "S3"
+      ],
+      "correctAnswer": ["DynamoDB plus DAX"]
+    }
+  },
+  {
+    "id": "64",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a mining and fossil fuel company that has tasked you with creating an analytics application that builds visualizations to be used for analysis of their regional seismic wave activity on a daily basis. They need this analysis to help plan drilling and excavating activity across their global excavation sites. The data store used for this seismic activity holds multiple petabytes of seismic data from years of analysis. Your analytics visualizations need to chart historical as well as current activity. This requires long running analysis tasks. You have been asked to optimize for cost and for microsecond response times for your operational queries of your data store. Which set of AWS services satisfy your requirements?",
+      "answers": [
+        "DynamoDB and DAX",
+        "Elasticache for Redis and RDS",
+        "Elasticache for Memcached and RDS",
+        "Elasticache for Redis and DynamoDB"
+      ],
+      "correctAnswer": ["DynamoDB and DAX"]
+    }
+  },
+  {
+    "id": "65",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a retail clothing chain. Your company has decided that their social media platform activity has become popular enough to provide valuable insight into their customer preferences and buying habits. They wish to gather their Instagram and Twitter social media data and use it for analytics to provide insight into various customer attributes, such as demographics, purchasing tendencies, relationships to other potential customers, etc. Your management team wants to build business intelligence (BI) ad-hoc visualizations from this data.What option best describes the operational characteristics of the solution that best meets your requirements in the most efficient manner?",
+      "answers": [
+        "Kinesis Data Streams receives the Instagram and Twitter social media feeds. Kinesis Data Analytics receives the feed from Kinesis Data Streams and sends it to Kinesis Data Firehose which streams the data to S3. A Glue crawler catalogs the social media feed data. Athena is used to perform ad-hoc queries. QuickSight is used for data visualization.",
+        "Kinesis Data Firehose receives the Instagram and Twitter social media feeds. Kinesis Data Firehose streams the raw data to S3. A Glue crawler catalogs the social media feed data. Athena is used to perform ad-hoc queries. QuickSight is used for data visualization.",
+        "Kinesis Data Firehose receives the Instagram and Twitter social media feeds. Kinesis Data Firehose streams the raw data to S3. A Lambda function catalogs the social media feed data. Athena is used to perform ad-hoc queries. QuickSight is used for data visualization.",
+        "AWS IoT receives the Instagram and Twitter social media feeds. Kinesis Data Firehose receives the feed from IoT and streams the raw data to S3. A Glue crawler catalogs the social media feed data. Athena is used to perform ad-hoc queries. QuickSight is used for data visualization."
+      ],
+      "correctAnswer": ["Kinesis Data Firehose receives the Instagram and Twitter social media feeds. Kinesis Data Firehose streams the raw data to S3. A Glue crawler catalogs the social media feed data. Athena is used to perform ad-hoc queries. QuickSight is used for data visualization."]
+    }
+  },
+  {
+    "id": "66",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Storage and Data Management",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a global volunteer organization that connects volunteers with service opportunities around the world. There are thousands of opportunities and hundreds of thousands of volunteers in the archive and current volunteer listings. You have been tasked with building out a data warehouse to hold all of the service opportunities and volunteer attributes. This data warehouse will be used by the volunteer organization management team to perform visualizations of volunteer opportunities to volunteer mappings and other large data representations.You have started building your data warehouse in Redshift. You have used the default settings when creating your tables in Redshift. When you start using your new data warehouse, you notice that queries against certain tables are slower than expected when the queries are built so that they use restrictive predicates on secondary sort columns, without using the primary columns. However, your queries that use group by and order by operations run very quickly.What might be the root of your slow performance?",
+      "answers": [
+        "You are using an interleaved sort key, queries against tables with interleaved sort keys don't perform well when the query depends on secondary sort columns.",
+        "You are using a global secondary index on your tables, queries against tables with a global secondary index don't perform well when the query depends on secondary sort columns.",
+        "You are using a compound sort key, queries against tables with compound sort keys don't perform well when the query depends on secondary sort columns.",
+        "You are using vacuum reindexing, queries against tables using vacuum reindexing don't perform well when the query depends on secondary sort columns."
+      ],
+      "correctAnswer": ["You are using a compound sort key, queries against tables with compound sort keys don't perform well when the query depends on secondary sort columns."]
+    }
+  },
+  {
+    "id": "67",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Processing",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data architect for an alternative power company that specializes in solar power. Your company’s solar power grids are located across many different areas of your geographic region. These solar power grids generate IoT messages describing the power generated per panel, the health of the various components, etc. Your company also has an RDS database where solar panel customer information is stored. Your task is to create a persistent metadata store for your IoT and customer data so that your data scientists can use EMR, Athena, and Redshift to build analytics applications using these disparate data sources.You have created a Kinesis Data Firehose stream to stream your IoT data to one of your S3 buckets. You now need to use a metadata cataloging service to build your persistent metadata store. Which option fits your data processing requirements?",
+      "answers": [
+        "Use Apache Hive as the metastore with a MySQL database on the master node's file system",
+        "Use Apache Hive as the metastore with an external PostgreSQL database",
+        "Use AWS Glue as the metastore",
+        "Use Apache Hive as the metastore with a PostgreSQL database on the master node's file system"
+      ],
+      "correctAnswer": ["Use AWS Glue as the metastore"]
+    }
+  },
+  {
+    "id": "68",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Analysis and Visualization",
+      "questionType": "multiple choice 1",
+      "question": "You work as a data scientist for a city planning department for the largest city in your country, which has over 18 million citizens. You are working on a data visualization using data, collected from your most recent census, for all citizens in your city. This visualization will draw data from your data lake about all censused citizens, their household size, age, family lineage, and other descriptive data elements. Some of the fields are integers, some are dates, and some are strings.You plan to use Amazon QuickSight as your data visualization tool. If you are building a visualization that includes 20 date fields, 35 integer fields, and 10 string fields of length 100, what SPICE capacity allocation do you need to have available in your QuickSight account to accommodate your approximately 18 million citizen records?",
+      "answers": [
+        "Approximately 25 GB",
+        "Approximately 2 GB",
+        "Approximately 141 GB",
+        "Approximately 27 GB"
+      ],
+      "correctAnswer": ["Approximately 25 GB"]
     }
   }
 ]
