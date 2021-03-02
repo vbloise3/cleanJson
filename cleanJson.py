@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import re
 fread = open("ML_Practice_Exam_Questions_ml.json", "r")
