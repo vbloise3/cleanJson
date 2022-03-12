@@ -1,345 +1,324 @@
 [
   {
-    "id": "1092",
+    "id": "1113",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "Through an API, a company's fleet of Amazon EC2 instances collects data from millions of consumers. To guarantee high access rates, the servers batch the data, create an object for each user, and upload the objects to an S3 bucket. Customer ID, Server ID, TS-Server (TimeStamp and Server ID), the object's size, and a timestamp are the object's properties. A developer wishes to locate all items gathered for a particular user during a certain time period. How can the developer accomplish this need after establishing an S3 object created event?",
+      "question": "A programmer is developing a new application that will make use of an Amazon DynamoDB database. All objects older than 48 hours must be eliminated, according to the standard. Which solution will satisfy this criterion?",
       "answers": [
-        "Run an AWS Lambda function in response to the S3 object creation events that creates an Amazon DynamoDB record for every object with the Customer ID as the partition key and the Server ID as the sort key. Retrieve all the records using the Customer ID and Server ID attributes.",
-        "Run an AWS Lambda function in response to the S3 object creation events that creates an Amazon Redshift record for every object with the Customer ID as the partition key and TS-Server as the sort key. Retrieve all the records using the Customer ID and TS-Server attributes.",
-        "Run an AWS Lambda function in response to the S3 object creation events that creates an Amazon DynamoDB record for every object with the Customer ID as the partition key and TS-Server as the sort key. Retrieve all the records using the Customer ID and TS-Server attributes.",
-        "Run an AWS Lambda function in response to the S3 object creation events that creates an Amazon Redshift record for every object with the Customer ID as the partition key and the Server ID as the sort key. Retrieve all the records using the Customer ID and Server ID attributes."
+        "Create a new attribute that has the Number data type. Add a local secondary index (LSI) for this attribute, and enable TTL with an expiration of 48 hours. In the application code, set the value of this attribute to the current timestamp for each new item that is being inserted.",
+        "Create a new attribute that has the String data type. Add a local secondary index (LSI) for this attribute, and enable TTL with an expiration of 48 hours. In the application code, set the value of this attribute to the current timestamp for each new item that is being inserted.",
+        "Create a new attribute that has the Number data type. Enable TTL on the DynamoDB table for this attribute. In the application code, set the value of this attribute to the current timestamp plus 48 hours for each new item that is being inserted.",
+        "Create a new attribute that has the String data type. Enable TTL on the DynamoDB table for this attribute. In the application code, set the value of this attribute to the current timestamp plus 48 hours for each new item that is being inserted."
       ],
-      "correctAnswer": ["Run an AWS Lambda function in response to the S3 object creation events that creates an Amazon DynamoDB record for every object with the Customer ID as the partition key and TS-Server as the sort key. Retrieve all the records using the Customer ID and TS-Server attributes."]
+      "correctAnswer": ["Create a new attribute that has the Number data type. Enable TTL on the DynamoDB table for this attribute. In the application code, set the value of this attribute to the current timestamp plus 48 hours for each new item that is being inserted."]
     }
   },
   {
-    "id": "1093",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A business need a fully managed source control solution that is compatible with AWS. By sharing sets of changes peer-to-peer, the service must guarantee that revision control synchronizes various dispersed repositories. All users must be productive regardless of whether they are connected to a network. Which version control system should I use?",
-      "answers": [
-        "Subversion",
-        "AWS CodeBuild",
-        "AWS CodeCommit",
-        "AWS CodeStar"
-      ],
-      "correctAnswer": ["AWS CodeCommit"]
-    }
-  },
-  {
-    "id": "1094",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A developer is tasked with the responsibility of creating a cache layer in front of Amazon RDS. In the event of a service outage, it is costly to regenerate cached material. Which of the following implementations would work best in terms of uptime?",
-      "answers": [
-        "Implement Amazon ElastiCache Redis in Cluster Mode",
-        "Install Redis on an Amazon EC2 instance.",
-        "Implement Amazon ElastiCache Memcached.",
-        "Migrate the database to Amazon Redshift."
-      ],
-      "correctAnswer": ["Implement Amazon ElastiCache Redis in Cluster Mode"]
-    }
-  },
-  {
-    "id": "1095",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "On an Amazon EC2 instance, a developer is executing an application. When the program attempts to read from an Amazon S3 bucket, it fails. The developer discovers that the S3 read permission is missing from the related IAM role. The developer must enable the application to read from the S3 bucket. Which solution satisfies this need with the MINIMUM amount of application downtime?",
-      "answers": [
-        "Add the permission to the role. Terminate the existing EC2 instance. Launch a new EC2 instance",
-        "Add the permission to the role so that the change will take effect automatically",
-        "Add the permission to the role. Hibernate and restart the existing EC2 instance.",
-        "Add the permission to the S3 bucket. Restart the EC2 instance."
-      ],
-      "correctAnswer": ["Add the permission to the role so that the change will take effect automatically"]
-    }
-  },
-  {
-    "id": "1096",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A developer wishes to get a list of objects from an Amazon DynamoDB table's global secondary index. Which DynamoDB API call should the developer use to utilize the fewest read capacity units possible?",
-      "answers": [
-        "Scan operation using eventually-consistent reads",
-        "Query operation using strongly-consistent reads",
-        "Query operation using eventually-consistent reads",
-        "Scan operation using strongly-consistent reads"
-      ],
-      "correctAnswer": ["Query operation using eventually-consistent reads"]
-    }
-  },
-  {
-    "id": "1097",
+    "id": "1114",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 2",
-      "question": "A corporation is deploying one of their apps using AWS CodePipeline. The delivery pipeline is triggered by modifications to the master branch of an AWS CodeCommit repository and utilizes AWS CodeBuild for the test and build phases, as well as AWS CodeDeploy for application deployment. For many months, the pipeline has operated effectively with no adjustments. AWS CodeDeploy failed to deploy the updated application as planned after a recent modification to the application's source code. What may be the underlying causes? (Select two.)",
+      "question": "Amazon Kinesis is being used to handle clickstream data for an application. Periodic spikes occur in the clickstream data flow into Kinesis. Occasionally, the PutRecords API request fails, and the logs indicate that the unsuccessful call provides the following response: { FailedRecordCount: 1, Records: [ { SequenceNumber: 5645465654352324, ShardId: shardId-000000000001 }, { ErrorCode: ProvisionedThroughputExceededException, ErrorMessage: Rate exceeded for shard shard-000000000001 in stream exampleStreamName under account 123456789. }, { SequenceNumber: 3215464567864352354, ShardId: shardId-000000000002 } ] } Which approaches will aid in mitigating this circumstance? (Select two.)",
       "answers": [
-        "The change was not made in the master branch of the AWS CodeCommit repository.",
-        "One of the earlier stages in the pipeline failed and the pipeline has terminated.",
-        "One of the Amazon EC2 instances in the companys AWS CodePipeline cluster is inactive.",
-        "The AWS CodePipeline is incorrectly configured and is not executing AWS CodeDeploy.",
-        "AWS CodePipeline does not have permissions to access AWS CodeCommit."
+        "Implement retries with exponential backoff.",
+        "Use a PutRecord API instead of PutRecords.",
+        "Reduce the frequency and/or size of the requests.",
+        "Use Amazon SNS instead of Kinesis.",
+        "Reduce the number of KCL consumers."
       ],
-      "correctAnswer": ["The change was not made in the master branch of the AWS CodeCommit repository.",
-        "One of the earlier stages in the pipeline failed and the pipeline has terminated."]
+      "correctAnswer": ["Implement retries with exponential backoff.", "Reduce the frequency and/or size of the requests."]
     }
   },
   {
-    "id": "1098",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A developer is attempting to use the SDK to perform API requests. The application's IAM user credentials need multi-factor authentication for all API requests. Which mechanism does the developer use to get access to the API that is protected by multi-factor authentication?",
-      "answers": [
-        "GetFederationToken",
-        "GetCallerIdentity",
-        "GetSessionToken",
-        "DecodeAuthorizationMessage"
-      ],
-      "correctAnswer": ["GetSessionToken"]
-    }
-  },
-  {
-    "id": "1099",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "There are two categories of members on a video-hosting website: those who pay a charge and those who do not. Each video upload creates a message in Amazon Simple Queue Service (SQS). Each video is processed by a fleet of Amazon EC2 instances that poll Amazon SQS. The developer must guarantee that the developer processes the films submitted by paying users first. How is the developer to achieve this criterion?",
-      "answers": [
-        "Create two SQS queues: one for paying members, and one for non-paying members. Poll the paying member queue first and then poll the non-paying member queue.",
-        "Use SQS to set priorities on individual items within a single queue; give the paying members videos the highest priority.",
-        "Use SQS to set priorities on individual items within a single queue and use Amazon SNS to encode the videos.",
-        "Create two Amazon SNS topics: one for paying members and one for non-paying members. Use SNS topic subscription priorities to differentiate between the two types of members."
-      ],
-      "correctAnswer": ["Create two SQS queues: one for paying members, and one for non-paying members. Poll the paying member queue first and then poll the non-paying member queue."]
-    }
-  },
-  {
-    "id": "1100",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A development team is composed of ten individuals. The manager want to offer access to user-specific folders in an Amazon S3 bucket, similar to a home directory for each team member. The sample of the IAM policy for the team member with the username TeamMemberX is as follows: { SID: AllowS3ActionToFolders, Effect: Allow, Action: [s3: *], Resource: [arn:aws::s3:::company-name/home/TeamMemberX/*] } Rather of generating unique policies for each team member, how may this policy excerpt be made general for all team members?",
-      "answers": [
-        "Use IAM policy condition",
-        "Use IAM policy principal",
-        "Use IAM policy variables",
-        "Use IAM policy resource"
-      ],
-      "correctAnswer": ["Use IAM policy variables"]
-    }
-  },
-  {
-    "id": "1101",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "The development team is now hard at work developing an API that will be provided through the Amazon API gateway. Three environments will service the API: development, test, and production. All three phases of the API Gateway are set to consume 237 GB of cache. Which deployment option is the MOST cost-effective?",
-      "answers": [
-        "Create a single API Gateway with all three stages.",
-        "Create three API Gateways, one for each stage in a single AWS account.",
-        "Create an API Gateway in three separate AWS accounts.",
-        "Enable the cache for development and test environments only when needed."
-      ],
-      "correctAnswer": ["Enable the cache for development and test environments only when needed."]
-    }
-  },
-  {
-    "id": "1102",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "On Amazon EC2 ECS, two containerized microservices are hosted. The first microservice reads a database instance from Amazon RDS Aurora, while the second microservice reads a table from Amazon DynamoDB. How can the bare minimal rights be provided to each microservice?",
-      "answers": [
-        "Set ECS_ENABLE_TASK_IAM_ROLE to false on EC2 instance boot in ECS agent configuration file. Run the first microservice with an IAM role for ECS tasks with read-only access for the Aurora database. Run the second microservice with an IAM role for ECS tasks with read-only access to DynamoDB.",
-        "Set ECS_ENABLE_TASK_IAM_ROLE to false on EC2 instance boot in the ECS agent configuration file. Grant the instance profile role read-only access to the Aurora database and DynamoDB.",
-        "Set ECS_ENABLE_TASK_IAM_ROLE to true on EC2 instance boot in the ECS agent configuration file. Run the first microservice with an IAM role for ECS tasks with read-only access for the Aurora database. Run the second microservice with an IAM role for ECS tasks with read-only access to DynamoDB.",
-        "Set ECS_ENABLE_TASK_IAM_ROLE to true on EC2 instance boot in the ECS agent configuration file. Grant the instance profile role read-only access to the Aurora database and DynamoDB."
-      ],
-      "correctAnswer": ["Set ECS_ENABLE_TASK_IAM_ROLE to true on EC2 instance boot in the ECS agent configuration file. Run the first microservice with an IAM role for ECS tasks with read-only access for the Aurora database. Run the second microservice with an IAM role for ECS tasks with read-only access to DynamoDB."]
-    }
-  },
-  {
-    "id": "1103",
+    "id": "1115",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 2",
-      "question": "A developer is debugging a three-tier application hosted on Amazon EC2 instances. Between the application servers and database servers, there is a connection issue. Which Amazon Web Services (AWS) services or tools should be utilized to determine which component is faulty? (Make a selection of at least two.)",
+      "question": "AWS Lambda functions must connect to an external site using a user name and password that are rotated on a regular basis. These elements must be securely stored and cannot be included inside the function code. Which AWS services may be utilized in conjunction with one another to achieve this? (Select two.)",
       "answers": [
-        "AWS CloudTrail",
+        "AWS Certificate Manager (ACM)",
+        "AWS Systems Manager Parameter Store",
         "AWS Trusted Advisor",
-        "Amazon VPC Flow Logs",
-        "Network access control lists",
-        "AWS Config rules"
+        "AWS KMS",
+        "Amazon GuardDuty"
       ],
-      "correctAnswer": ["Amazon VPC Flow Logs",
-        "Network access control lists"]
+      "correctAnswer": ["AWS Systems Manager Parameter Store", "AWS KMS"]
     }
   },
   {
-    "id": "1104",
+    "id": "1116",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A program inserts data into an Amazon DynamoDB database. As the application expands to thousands of instances, intermittent ThrottlingException problems are thrown by calls to the DynamoDB API. The application is written in a language that is not supported by the AWS SDK. What procedure should be followed in the event of an error?",
+      "question": "A development team is hard at work on a mobile application that will enable users to submit images to Amazon S3. The company anticipates that hundreds of thousands of people will use the app concurrently during a single event. After the images are submitted, the backend service scans and parses them for objectionable material. Which strategy is the MOST robust way to accomplish this aim while also smoothing out transitory backend service traffic spikes?",
       "answers": [
-        "Add exponential backoff to the application logic",
-        "Use Amazon SQS as an API message bus",
-        "Pass API calls through Amazon API Gateway",
-        "Send the items to DynamoDB through Amazon Kinesis Data Firehose"
+        "Develop an AWS Lambda function to check the upload folder in the S3 bucket. If new uploaded pictures are detected, the Lambda function will scan and parse them.",
+        "Once a picture is uploaded to Amazon S3, publish the event to an Amazon SQS queue. Use the queue as an event source to trigger an AWS Lambda function. In the Lambda function, scan and parse the picture.",
+        "When the user uploads a picture, invoke an API hosted in Amazon API Gateway. The API will invoke an AWS Lambda function to scan and parse the picture.",
+        "Create a state machine in AWS Step Functions to check the upload folder in the S3 bucket. If a new picture is detected, invoke an AWS Lambda function to scan and parse it."
       ],
-      "correctAnswer": ["Add exponential backoff to the application logic"]
+      "correctAnswer": ["Once a picture is uploaded to Amazon S3, publish the event to an Amazon SQS queue. Use the queue as an event source to trigger an AWS Lambda function. In the Lambda function, scan and parse the picture."]
     }
   },
   {
-    "id": "1105",
+    "id": "1117",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is using serverless components to create a highly secure healthcare application. This application involves writing temporary data to an AWS Lambda function's /tmp storage. How should this data be encrypted by the developer?",
+      "question": "A developer has developed a web application that will be hosted on Amazon EC2 instances. The program creates and uploads thousands of new items to the same AWS Region's Amazon S3 bucket. Each item is less than 1 MB in size. The program is taking an excessive amount of time to operate. How might the application's performance be enhanced?",
       "answers": [
-        "Enable Amazon EBS volume encryption with an AWS KMS CMK in the Lambda function configuration so that all storage attached to the Lambda function is encrypted.",
-        "Set up the Lambda function with a role and key policy to access an AWS KMS CMK. Use the CMK to generate a data key used to encrypt all data prior to writing to /tmp storage.",
-        "Use OpenSSL to generate a symmetric encryption key on Lambda startup. Use this key to encrypt the data prior to writing to /tmp storage.",
-        "Use an on-premises hardware security module (HSM) to generate keys, where the Lambda function requests a data key from the HSM and uses that to encrypt data on all requests to the function."
+        "Use the S3 Multipart Upload API.",
+        "Use S3 Transfer Acceleration.",
+        "Upload the objects in parallel to Amazon S3.",
+        "Add a random prefix to the object Keys."
       ],
-      "correctAnswer": ["Set up the Lambda function with a role and key policy to access an AWS KMS CMK. Use the CMK to generate a data key used to encrypt all data prior to writing to /tmp storage."]
+      "correctAnswer": ["Upload the objects in parallel to Amazon S3."]
     }
   },
   {
-    "id": "1106",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 2",
-      "question": "A business requires security for its current website, which is hosted behind an Elastic Load Balancer. Amazon EC2 instances hosting the website are CPU restricted. How can the website be secured without raising the CPU burden on the Amazon EC2 web servers? (Select two.)",
-      "answers": [
-        "Configure an Elastic Load Balancer with SSL pass-through.",
-        "Configure SSL certificates on an Elastic Load Balancer.",
-        "Configure an Elastic Load Balancer with a Loadable Storage System.",
-        "Install SSL certificates on the EC2 instances.",
-        "Configure an Elastic Load Balancer with SSL termination."
-      ],
-      "correctAnswer": ["Configure SSL certificates on an Elastic Load Balancer.", "Configure an Elastic Load Balancer with SSL termination."]
-    }
-  },
-  {
-    "id": "1107",
+    "id": "1118",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A software engineer created a Node.js AWS Lambda function to do CPU-intensive data processing. The Lambda function takes around 5 minutes to finish with the default parameters. Which strategy should a developer employ to expedite the finishing process?",
+      "question": "In an Amazon DynamoDB database, a business caches session information for a web application. The organization want to automate the process of deleting obsolete entries from the table. What is the easiest method for doing this?",
       "answers": [
-        "Instead of using Node.js, rewrite the Lambda function using Python.",
-        "Instead of packaging the libraries in the ZIP file with the function, move them to a Lambda layer and use the layer with the function.",
-        "Allocate the maximum available CPU units to the function.",
-        "Increase the available memory to the function."
+        "Write a script that deletes old records; schedule the scripts as a cron job on an Amazon EC2 instance.",
+        "Add an attribute with the expiration time; enable the Time To Live feature based on that attribute.",
+        "Each day, create a new table to hold session data; delete the previous days table.",
+        "Add an attribute with the expiration time; name the attribute ItemExpiration."
       ],
-      "correctAnswer": ["Increase the available memory to the function."]
+      "correctAnswer": ["Add an attribute with the expiration time; enable the Time To Live feature based on that attribute."]
     }
   },
   {
-    "id": "1108",
+    "id": "1119",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer will handle AWS services through the AWS CLI on a local development server. What can be done to guarantee that the CLI executes commands using the Developers IAM permissions?",
+      "question": "Two Amazon DynamoDB tables are accessed using an AWS Lambda function. A developer wishes to optimize the Lambda functions performance by finding bottlenecks inside the function. How can a developer determine the duration of DynamoDB API calls?",
       "answers": [
-        "Specify the Developers IAM access key ID and secret access key as parameters for each CLI command.",
-        "Run the aws configure CLI command, and provide the Developers IAM access key ID and secret access key.",
-        "Specify the Developers IAM user name and password as parameters for each CLI command.",
-        "Use the Developers IAM role when making the CLI command."
+        "Add DynamoDB as an event source to the Lambda function. View the performance with Amazon CloudWatch metrics.",
+        "Place an Application Load Balancer (ALB) in front of the two DynamoDB tables. Inspect the ALB logs.",
+        "Limit Lambda to no more than five concurrent invocations. Monitor from the Lambda console.",
+        "Enable AWS X-Ray tracing for the function. View the traces from the X-Ray service."
       ],
-      "correctAnswer": ["Run the aws configure CLI command, and provide the Developers IAM access key ID and secret access key."]
+      "correctAnswer": ["Enable AWS X-Ray tracing for the function. View the traces from the X-Ray service."]
     }
   },
   {
-    "id": "1109",
+    "id": "1120",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A client wishes to host its source code on AWS Elastic Beanstalk. The client should undertake deployment with minimum downtime and should keep application access logs exclusively on existing instances. Which deployment strategy would meet these criteria?",
+      "question": "When new items are produced in a bucket, a developer uses Amazon S3 as the event source to run a Lambda function. The bucket notification configuration stores the information about the event source mapping. The developer is experimenting with various Lambda function versions and is constantly required to alter notification settings to ensure that Amazon S3 invokes the proper version. What is the MOSTefficient and effective method for mapping the S3 event to Lambda?",
       "answers": [
-        "Rolling",
-        "All at once",
-        "Rolling with an additional batch",
-        "Immutable"
+        "Use a different Lambda trigger.",
+        "Use Lambda environment variables.",
+        "Use a Lambda alias.",
+        "Use Lambda tags."
       ],
-      "correctAnswer": ["Rolling"]
+      "correctAnswer": ["Use a Lambda alias."]
     }
   },
   {
-    "id": "1110",
+    "id": "1121",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A development team chooses to use AWS CodePipeline and AWS CodeCommit to implement a continuous integration/continuous delivery (CI/CD) method for a new application. Management, on the other hand, requires a human to evaluate and approve the code prior to it being released to production. How can the development team include a manual approver into the continuous integration/continuous delivery pipeline?",
+      "question": "On a local development workstation, a developer has constructed a Node.js web application. The developer want to host the website on AWS. The developer desires a solution that has the fewest operational overhead and requires no code modifications. Which Amazon Web Services (AWS) service should the developer utilize to satisfy these requirements?",
       "answers": [
-        "Use AWS SES to send an email to approvers when their action is required. Develop a simple application that allows approvers to accept or reject a build. Invoke an AWS Lambda function to advance the pipeline when a build is accepted.",
-        "If approved, add an approved tag when pushing changes to the CodeCommit repository. CodePipeline will proceed to build and deploy approved commits without interruption.",
-        "Add an approval step to CodeCommit. Commits will not be saved until approved.",
-        "Add an approval action to the pipeline. Configure the approval action to publish to an Amazon SNS topic when approval is required. The pipeline execution will stop and wait for an approval."
+        "AWS Elastic Beanstalk",
+        "Amazon EC2",
+        "AWS Lambda",
+        "Amazon Elastic Kubernetes Service (Amazon EKS)"
       ],
-      "correctAnswer": ["Add an approval action to the pipeline. Configure the approval action to publish to an Amazon SNS topic when approval is required. The pipeline execution will stop and wait for an approval."]
+      "correctAnswer": ["AWS Elastic Beanstalk"]
     }
   },
   {
-    "id": "1111",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 2",
-      "question": "A developer is now working on a serverless Java app. Initial testing indicates that a cold start for AWS Lambda functions takes around 8 seconds on average. What should the developer do to lessen the time required for a cold start? (Select two.)",
-      "answers": [
-        "Add the Spring Framework to the project and enable dependency injection.",
-        "Reduce the deployment package by including only needed modules from the AWS SDK for Java.",
-        "Increase the memory allocation setting for the Lambda function.",
-        "Increase the timeout setting for the Lambda function.",
-        "Change the Lambda invocation mode from synchronous to asynchronous."
-      ],
-      "correctAnswer": ["Reduce the deployment package by including only needed modules from the AWS SDK for Java.",
-        "Increase the memory allocation setting for the Lambda function."]
-    }
-  },
-  {
-    "id": "1112",
+    "id": "1122",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A business created an online event platform. The firm conducts quizzes and creates leaderboards based on the quiz results for each event. The organization maintains leaderboard data in Amazon DynamoDB and preserves it for 30 days after the conclusion of an event. The firm then deletes the outdated leaderboard data through a scheduled process. The DynamoDB table has a fixed write capacity defined. When the scheduled deletion task runs during months with a high volume of events, the DynamoDB write API calls are throttled. A developer must construct a long-term solution that permanently deletes historical leaderboard data and maximizes write performance. Which solution satisfies these criteria?",
+      "question": "A business operates an application on AWS Lambda@Edge. The application offers material that adapts according on the device being used by the viewer. The number of hits by device type is written to logs in Amazon CloudWatch Logs that are saved in a log group. For each device type, the organization must provide an Amazon CloudWatch custom metric. Which strategy will satisfy these criteria?",
       "answers": [
-        "Configure a TTL attribute for the leaderboard data.",
-        "Use DynamoDB Streams to schedule and delete the leaderboard data.",
-        "Use AWS Step Functions to schedule and delete the leaderboard data.",
-        "Set a higher write capacity when the scheduled delete job runs."
+        "Create a CloudWatch Logs Insights query to extract the device type information from the logs and to create a custom metric with device type as a dimension.",
+        "Create a CloudWatch metric filter to extract metrics from the log files with device type as a dimension.",
+        "Update the application to write its logs in the CloudWatch embedded metric format with device type as a dimension.",
+        "Configure the CloudWatch Logs agent for Lambda integration. Update the application to use the StatsD protocol to emit the metrics."
       ],
-      "correctAnswer": ["Configure a TTL attribute for the leaderboard data."]
+      "correctAnswer": ["Create a CloudWatch metric filter to extract metrics from the log files with device type as a dimension."]
+    }
+  },
+  {
+    "id": "1123",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A programmer is developing a new application that will make advantage of Amazon S3. To comply with regulatory standards, the Developer must encrypt data in transit. How is this accomplished by the Developer?",
+      "answers": [
+        "Use s3:x-amz-acl as a condition in the S3 bucket policy.",
+        "Use Amazon RDS with default encryption.",
+        "Use aws:SecureTransport as a condition in the S3 bucket policy.",
+        "Turn on S3 default encryption for the S3 bucket."
+      ],
+      "correctAnswer": ["Use aws:SecureTransport as a condition in the S3 bucket policy."]
+    }
+  },
+  {
+    "id": "1124",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "On Amazon EC2, a developer is developing an application. During testing, the developer experienced an Access Denied error on many API requests to AWS services. The developer must alter the permissions previously granted to the instance. How can these needs be accomplished with the fewest possible adjustments and downtime?",
+      "answers": [
+        "Make a new IAM role with the needed permissions. Stop the instance. Attach the new IAM role to the instance. Start the instance.",
+        "Delete the existing IAM role. Attach a new IAM role with the needed permissions.",
+        "Stop the instance. Update the attached IAM role adding the needed permissions. Start the instance.",
+        "Update the attached IAM role adding the needed permissions."
+      ],
+      "correctAnswer": ["Update the attached IAM role adding the needed permissions."]
+    }
+  },
+  {
+    "id": "1125",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A developing program requires the storage of hundreds of video files. Prior to storage, the data must be encrypted inside the program using a unique key for each video file. How should the applications developer code it?",
+      "answers": [
+        "Use the KMS Encrypt API to encrypt the data. Store the encrypted data key and data.",
+        "Use a cryptography library to generate an encryption key for the application. Use the encryption key to encrypt the data. Store the encrypted data.",
+        "Use the KMS GenerateDataKey API to get a data key. Encrypt the data with the data key. Store the encrypted data key and data.",
+        "Upload the data to an S3 bucket using server side-encryption with an AWS KMS key."
+      ],
+      "correctAnswer": ["Use the KMS GenerateDataKey API to get a data key. Encrypt the data with the data key. Store the encrypted data key and data."]
+    }
+  },
+  {
+    "id": "1126",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "An existing serverless application handles picture files that have been uploaded. At the moment, the process is implemented using a single Lambda function that accepts an image file, processes it, and saves it in Amazon S3. The applications users now demand picture thumbnail production. Users desire to minimize the time required to complete picture uploads. How can thumbnail creation be integrated into an application while still adhering to user expectations and requiring little modifications to current code?",
+      "answers": [
+        "Change the existing Lambda function handling the uploads to create thumbnails at the time of upload. Have the function store both the image and thumbnail in Amazon S3.",
+        "Create a second Lambda function that handles thumbnail generation and storage. Change the existing Lambda function to invoke it asynchronously.",
+        "Create an S3 event notification with a Lambda function destination. Create a new Lambda function to generate and store thumbnails.",
+        "Create an S3 event notification to an SQS Queue. Create a scheduled Lambda function that processes the queue, and generates and stores thumbnails."
+      ],
+      "correctAnswer": ["Create an S3 event notification with a Lambda function destination. Create a new Lambda function to generate and store thumbnails."]
+    }
+  },
+  {
+    "id": "1127",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A developer wishes to give systems administrators access to the log data of an application operating on an EC2 instance. In Amazon CloudWatch, which of the following provides monitoring of this metric?",
+      "answers": [
+        "Retrieve the log data from CloudWatch using the GetMetricData API call.",
+        "Retrieve the log data from AWS CloudTrail using the LookupEvents API call.",
+        "Launch a new EC2 instance, configure Amazon CloudWatch Events, and then install the application.",
+        "Install the Amazon CloudWatch Logs agent on the EC2 instance that the application is running on."
+      ],
+      "correctAnswer": ["Install the Amazon CloudWatch Logs agent on the EC2 instance that the application is running on."]
+    }
+  },
+  {
+    "id": "1128",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A business is creating an application that will operate on several Amazon EC2 instances in an Auto Scaling group and will have access to an Amazon EC2 database. The program must save the credentials necessary to connect to the database. Periodic secret rotation must be supported in the application, and the program should remain unchanged when a secret changes. How can these needs be met in the SAFEST manner possible?",
+      "answers": [
+        "Associate an IAM role to the EC2 instance where the application is running with permission to access the database.",
+        "Use AWS Systems Manager Parameter Store with the SecureString data type to store secrets.",
+        "Configure the application to store secrets in Amazon S3 object metadata.",
+        "Hard code the database secrets in the application code itself."
+      ],
+      "correctAnswer": ["Use AWS Systems Manager Parameter Store with the SecureString data type to store secrets."]
+    }
+  },
+  {
+    "id": "1129",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A developer used a CLI command to register an AWS Lambda function as a target for an Application Load Balancer (ALB). However, when the client submits requests via the ALB, the Lambda function is not called. Why isnt the Lambda function called?",
+      "answers": [
+        "A Lambda function cannot be registered as a target for an ALB.",
+        "A Lambda function can be registered with an ALB using AWS Management Console only.",
+        "The permissions to invoke the Lambda function are missing.",
+        "Cross-zone is not enabled on the ALB."
+      ],
+      "correctAnswer": ["The permissions to invoke the Lambda function are missing."]
+    }
+  },
+  {
+    "id": "1130",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A corporation has numerous developers stationed across the world who are progressively upgrading code for a development project. When developers upload code simultaneously, internet connection is poor, and uploading code for deployment in AWS Elastic Beanstalk takes a long time. Which approach will result in the smallest amount of administrative work and the shortest upload and deployment times?",
+      "answers": [
+        "Allow the Developers to upload the code to an Amazon S3 bucket, and deploy it directly to Elastic Beanstalk.",
+        "Allow the Developers to upload the code to a central FTP server to deploy the application to Elastic Beanstalk.",
+        "Create an AWS CodeCommit repository, allow the Developers to commit code to it, and then directly deploy the code to Elastic Beanstalk.",
+        "Create a code repository on an Amazon EC2 instance so that all Developers can update the code, and deploy the application from the instance to Elastic Beanstalk."
+      ],
+      "correctAnswer": ["Create an AWS CodeCommit repository, allow the Developers to commit code to it, and then directly deploy the code to Elastic Beanstalk."]
+    }
+  },
+  {
+    "id": "1131",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A development team deploys a Java-based web application using AWS Elastic Beanstalk. The team want to guarantee that any modifications to the source code or settings are automatically distributed to new instances. The team configures Elastic Beanstalk such that immutable updates are used. However, an issue occurs the first time the new update policy is used to deploy a modification. Which of the following is the MOST LIKELY CAUSE of this problem?",
+      "answers": [
+        "Immutable updates are not supported for Java-based applications.",
+        "The account has reached its on-demand instance limit.",
+        "Immutable updates are only supported for m4.large and larger instance types.",
+        "The developer must also modify the .ebextensions/immutable-updates.config file to enable immutable updates."
+      ],
+      "correctAnswer": ["The account has reached its on-demand instance limit."]
+    }
+  },
+  {
+    "id": "1132",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "What are the procedures for launching a templatized serverless application using the AWS CLI?",
+      "answers": [
+        "Use AWS CloudFormation get-template then CloudFormation execute-change-set.",
+        "Use AWS CloudFormation validate-template then CloudFormation create-change-set.",
+        "Use AWS CloudFormation package then CloudFormation deploy.",
+        "Use AWS CloudFormation create-stack then CloudFormation update-stack."
+      ],
+      "correctAnswer": ["Use AWS CloudFormation package then CloudFormation deploy."]
     }
   }
 ]
