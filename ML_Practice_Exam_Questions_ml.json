@@ -1,324 +1,323 @@
 [
   {
-    "id": "1153",
+    "id": "1173",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is automating the deployment of a new application using AWS Serverless Application Model (AWS SAM). One AWS Lambda function and one Amazon S3 bucket are included in the new application. The Lambda function must have read-only access to the S3 bucket. How should the developer setup AWS SAM to provide the S3 bucket the appropriate read permissions?",
+      "question": "A status dashboard is shown by an application. A 1 KB message from a SQS queue is used to update the status. Although the status changes seldom, the Developer must keep the time between the message's arrival in the queue and the dashboard update as short as possible. Which strategy results in the smallest delay between dashboard updates?",
       "answers": [
-        "Reference a second Lambda authorizer function.",
-        "Add a custom S3 bucket policy to the Lambda function.",
-        "Create an Amazon Simple Queue Service (SQS) topic for only S3 object reads. Reference the topic in the template.",
-        "Add the S3ReadPolicy template to the Lambda function's execution role."
+        "Retrieve the messages from the queue using long polling every 20 seconds.",
+        "Reduce the size of the messages by compressing them before sending.",
+        "Retrieve the messages from the queue using short polling every 10 seconds.",
+        "Reduce the size of each message payload by sending it in two parts."
       ],
-      "correctAnswer": ["Add the S3ReadPolicy template to the Lambda function's execution role."]
+      "correctAnswer": ["Retrieve the messages from the queue using long polling every 20 seconds."]
     }
   },
   {
-    "id": "1154",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A developer must use AWS KMS to encrypt a 100 GB object. What is the BEST course of action?",
-      "answers": [
-        "Make an Encrypt API call to encrypt the plaintext data as ciphertext using a customer master key (CMK)",
-        "Make an Encrypt API call to encrypt the plaintext data as ciphertext using a customer master key (CMK) with imported key material",
-        "Make a GenerateDataKey API call that returns a plaintext key and an encrypted copy of a data key. Use a plaintext key to encrypt the data",
-        "Make a GenerateDataKeyWithoutPlaintext API call that returns an encrypted copy of a data key. Use an encrypted key to encrypt the data"
-      ],
-      "correctAnswer": ["Make a GenerateDataKey API call that returns a plaintext key and an encrypted copy of a data key. Use a plaintext key to encrypt the data"]
-    }
-  },
-  {
-    "id": "1155",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A real-time application processes millions of events that are received over an API. Which service might be utilized to enable concurrent processing of data by several users in the most cost-effective manner possible?",
-      "answers": [
-        "Amazon SNS with fanout to an SQS queue for each application",
-        "Amazon SNS with fanout to an SQS FIFO (first-in, first-out) queue for each application",
-        "Amazon Kinesis Firehose",
-        "Amazon Kinesis Streams"
-      ],
-      "correctAnswer": ["Amazon Kinesis Streams"]
-    }
-  },
-  {
-    "id": "1156",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A developer has created a serverless application that makes use of a variety of AWS services. The business logic is implemented using Lambda functions that rely on third-party libraries. Amazon API Gateway will be used to provide the Lambda function endpoints. The Lambda function will be used to store the data in Amazon DynamoDB. Although the developer is prepared to launch the program, he or she must have the ability to turn back. How, given these criteria, can this deployment be automated?",
-      "answers": [
-        "Deploy using Amazon Lambda API operations to create the Lambda function by providing a deployment package.",
-        "Use an AWS CloudFormation template and use CloudFormation syntax to define the Lambda function resource in the template.",
-        "Use syntax conforming to the Serverless Application Model in the AWS CloudFormation template to define the Lambda function resource.",
-        "Create a bash script which uses AWS CLI to package and deploy the application."
-      ],
-      "correctAnswer": ["Use syntax conforming to the Serverless Application Model in the AWS CloudFormation template to define the Lambda function resource."]
-    }
-  },
-  {
-    "id": "1157",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 1",
-      "question": "A firm is developing an application that will use an Amazon DynamoDB database to monitor athlete performance. A partition key (user id) and a sort key (sport name) uniquely identify each item in the database. The following illustration depicts the table's design: Partition Key: user_id, Sort Key: sport_name, Attributes: score, score_date_time. (Please note that not all table characteristics are shown.) A developer is requested to create a leaderboard application that would show the best performers (user id) for each sport name depending on their score. Which approach will enable the developer to most effectively retrieve results from the DynamoDB table?",
-      "answers": [
-        "Use a DynamoDB query operation with the key attributes of user_id and sport_name and order the results based on the score attribute.",
-        "Create a global secondary index with a partition key of sport_name and a sort key of score, and get the results",
-        "Use a DynamoDB scan operation to retrieve scores and user_id based on sport_name, and order the results based on the score attribute.",
-        "Create a local secondary index with a primary key of sport_name and a sort key of score and get the results based on the score attribute."
-      ],
-      "correctAnswer": ["Create a global secondary index with a partition key of sport_name and a sort key of score, and get the results"]
-    }
-  },
-  {
-    "id": "1158",
+    "id": "1174",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 2",
-      "question": "On Amazon EC2 instances in a VPC, a corporation runs a standard three-tier application, including its NoSQL database. The business want to transition to Amazon DynamoDB. A developer observes during testing that the application running on the EC2 instances is unable to write data to the DynamoDB database. The developer must securely provide the application write access to the DynamoDB table. Which combination of acts satisfies these criteria? (Select two.)",
+      "question": "A firm is introducing the option to save currency (or gift cards) to its very successful casual gaming website. Users must be able to exchange this value for the goods of other users on the site. This would involve either updating both users' information in a single transaction or totally rolling back both users' records. Which AWS database choices provide the needed transactional capabilities for this new feature? (Select two.)",
       "answers": [
-        "Create a gateway VPC endpoint for DynamoDB. Specify the VPC ID in the --vpc-id parameter.",
-        "Create an interface VPC endpoint for DynamoDB. Specify the VPC ID in the --vpc-id parameter.",
-        "Create an IAM user that allows write access to the DynamoDB table. Add the user to the EC2 Instances.",
-        "Create an IAM role that allows write access to the DynamoDB table. Add the role to the EC2 instances.",
-        "Create an IAM group that allows write access to the DynamoDB table. Add the group to the EC2 instances."
+        "Amazon DynamoDB with operations made with the ConsistentRead parameter set to true",
+        "Amazon ElastiCache for Memcached with operations made within a transaction block",
+        "Amazon Aurora MySQL with operations made within a transaction block",
+        "Amazon DynamoDB with reads and writes made using Transact* operations",
+        "Amazon Redshift with operations made within a transaction block."
       ],
-      "correctAnswer": ["Create a gateway VPC endpoint for DynamoDB. Specify the VPC ID in the --vpc-id parameter.", "Create an IAM role that allows write access to the DynamoDB table. Add the role to the EC2 instances."]
+      "correctAnswer": ["Amazon Aurora MySQL with operations made within a transaction block", "Amazon DynamoDB with reads and writes made using Transact* operations"]
     }
   },
   {
-    "id": "1159",
+    "id": "1175",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is developing a serverless application that needs every ten minutes invocation of an AWS Lambda function. How can the function be triggered in an automated and serverless manner?",
+      "question": "On Amazon ECS, a corporation is running a Docker application. The applications load must be scaled depending on the past 15 seconds user activity. How should a developer instrument code to ensure it satisfies the requirement?",
       "answers": [
-        "Deploy an Amazon EC2 instance based on Linux, and edit its /etc/crontab file by adding a command to periodically invoke the Lambda function.",
-        "Configure an environment variable named PERIOD for the Lambda function. Set the value to 600.",
-        "Create an IAM user that allows write access to the DynamoDB table. Add the user to the EC2 Instances.",
-        "Create an Amazon SNS topic that has a subscription to the Lambda function with a 600-second timer."
+        "Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds",
+        "Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds",
+        "Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds",
+        "Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds"
       ],
-      "correctAnswer": ["Create an IAM user that allows write access to the DynamoDB table. Add the user to the EC2 Instances."]
+      "correctAnswer": ["Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds"]
     }
   },
   {
-    "id": "1160",
+    "id": "1176",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer has submitted an update to an application that is delivered through Amazon CloudFront to a worldwide user base. Users are not able to view the latest modifications once the application is deployed. How can the Developer address this concern?",
+      "question": "A developer must construct an AWS application that will consume Amazon SQS messages ranging in size from 1KB to 1GB. How should Amazon Simple Queue Service (SQS) messages be managed?",
       "answers": [
-        "Remove the origin from the CloudFront configuration and add it again.",
-        "Disable forwarding of query strings and request headers from the CloudFront distribution configuration.",
-        "Invalidate all the application objects from the edge caches.",
-        "Disable the CloudFront distribution and enable it again to update all the edge locations."
+        "Use Amazon S3 and the Amazon SQS CLI.",
+        "Use Amazon S3 and the Amazon SQS Extended Client Library for Java.",
+        "Use Amazon EBS and the Amazon SQS CLI.",
+        "Use Amazon EFS and the Amazon SQS CLI."
       ],
-      "correctAnswer": ["Invalidate all the application objects from the edge caches."]
+      "correctAnswer": ["Use Amazon S3 and the Amazon SQS Extended Client Library for Java."]
     }
   },
   {
-    "id": "1161",
+    "id": "1177",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "Images are stored in an S3 bucket by an application. Notifications from Amazon S3 are utilized to invoke a Lambda code that resizes the pictures. Each photograph is processed in less than a second. How will AWS Lambda deal with the increased traffic?",
+      "question": "A developer is using AWS CLI, however it is stalling out when performing list commands on a large number of resources. How can this time-out be avoided?",
       "answers": [
-        "Lambda will scale out to execute the requests concurrently.",
-        "Lambda will handle the requests sequentially in the order received.",
-        "Lambda will process multiple images in a single execution.",
-        "Lambda will add more compute to each execution to reduce processing time."
+        "Use pagination",
+        "Use shorthand syntax",
+        "Use parameter values",
+        "Use quoting strings"
       ],
-      "correctAnswer": ["Lambda will scale out to execute the requests concurrently."]
+      "correctAnswer": ["Use pagination"]
     }
   },
   {
-    "id": "1162",
+    "id": "1178",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is doing a refactoring operation on a monolithic application. The program does many activities in response to a POST request. Some processes are carried out in concurrently, while others are carried out sequentially. These operations have been decoupled and repurposed as AWS Lambda functions. Amazon API Gateway will process the POST request. How should the developer launch the Lambda functions using API Gateway in the same order?",
+      "question": "A developer has developed a Lambda function and is discovering that it is taking longer than planned to execute. The Developer determined that increasing computing capacity might enhance performance after some debugging. What is the best way for the developer to boost Lambda computing resources?",
       "answers": [
-        "Use Amazon SQS to invoke the Lambda functions",
-        "Use an AWS Step Functions activity to run the Lambda functions",
-        "Use Amazon SNS to trigger the Lambda functions",
-        "Use an AWS Step Functions state machine to orchestrate the Lambda functions"
+        "Run on a larger instance size with more compute capacity.",
+        "Increase the maximum execution time.",
+        "Specify a larger compute capacity when calling the Lambda function.",
+        "Increase the allocated memory for the Lambda function."
       ],
-      "correctAnswer": ["Use an AWS Step Functions state machine to orchestrate the Lambda functions"]
+      "correctAnswer": ["Increase the allocated memory for the Lambda function."]
     }
   },
   {
-    "id": "1163",
+    "id": "1179",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A retailers developer must include a fraud detection solution into the order processing system. Verification of an order by the fraud detection solution takes between ten and thirty minutes. At its height, the website can process up to 100 orders per minute. How can the fraud detection technology be integrated into the order processing pipeline in the most scalable manner?",
+      "question": "A business builds, bundles, and packages its apps on-premises and stores them locally using a third-party technology. The firm runs its front-end apps on Amazon EC2 instances. How does one deploy an application from the source control system to the EC2 instances?",
       "answers": [
-        "Add all new orders to an Amazon SQS queue. Configure a fleet of 10 EC2 instances spanning multiple AZs with the fraud detection solution installed on them to pull orders from this queue. Update the order with a pass or fails status.",
-        "Add all new orders to an SQS queue. Configure an Auto Scaling group that uses the queue depth metric as its unit of scale to launch a dynamically-sized fleet of EC2 instances spanning multiple AZs with the fraud detection solution installed on them to pull orders from this queue. Update the order with a pass or fails status.",
-        "Add all new orders to an Amazon Kinesis Stream. Subscribe a Lambda function to automatically read batches of records from the Kinesis Stream. The Lambda function includes the fraud detection software and will update the order with a pass or fail status.",
-        "Write all new orders to Amazon DynamoDB. Configure DynamoDB Streams to include all new orders. Subscribe a Lambda function to automatically read batches of records from the Kinesis Stream. The Lambda function includes the fraud detection software and will update the order with a pass or fail status."
+        "Use AWS CodeDeploy and point it to the local storage to directly deploy a bundle in a .zip, .tar, or .tar.gz format.",
+        "Upload the bundle to an Amazon S3 bucket and specify the S3 location when doing a deployment using AWS CodeDeploy.",
+        "Create a repository using AWS CodeCommit to automatically trigger a deployment to the EC2 instances.",
+        "Use AWS CodeBuild to automatically deploy the latest build to the latest EC2 instances."
       ],
-      "correctAnswer": ["Add all new orders to an SQS queue. Configure an Auto Scaling group that uses the queue depth metric as its unit of scale to launch a dynamically-sized fleet of EC2 instances spanning multiple AZs with the fraud detection solution installed on them to pull orders from this queue. Update the order with a pass or fails status."]
+      "correctAnswer": ["Upload the bundle to an Amazon S3 bucket and specify the S3 location when doing a deployment using AWS CodeDeploy."]
     }
   },
   {
-    "id": "1164",
+    "id": "1180",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is required to create an application that makes advantage of Amazon DynamoDB. The criteria include that the DynamoDB table's contents must be 7KB in size and that reads must be highly consistent. The read pace is limited to three items per second, whereas the write rate is limited to ten things per second. What size DynamoDB table should the developer create to satisfy these requirements?",
+      "question": "A developer is using Amazon API Gateway to create a WebSocket API. The payload submitted to this API is JSON with an action key included. This key may take on one of three values: create, update, or delete. The developer must interact with several routes dependent on the value of the incoming JSON payload's action key. How can the developer execute this operation using the LESS settings possible?",
       "answers": [
-        "Read: 3 read capacity units Write: 70 write capacity units",
-        "Read: 6 read capacity units Write: 70 write capacity units",
-        "Read: 6 read capacity units Write: 10 write capacity units",
-        "Read: 3 read capacity units Write: 10 write capacity units"
+        "Deploy the WebSocket API to three stages for the respective routes: create, update, and remove",
+        "Create a new route key and set the name as action",
+        "Set the value of the route selection expression to action",
+        "Set the value of the route selection expression to $request.body.action"
       ],
-      "correctAnswer": ["Read: 6 read capacity units Write: 70 write capacity units"]
+      "correctAnswer": ["Set the value of the route selection expression to $request.body.action"]
     }
   },
   {
-    "id": "1165",
+    "id": "1181",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A business has a REST application made up of an Amazon API Gateway API and many AWS Lambda services. A developer is reacting to a warning that the HTTP response error rate for the API Gateway API has suddenly risen. The developer must rapidly discover which Lambda function is misbehaving. Which solution will satisfy these criteria?",
+      "question": "Amazon Kinesis Data Streams enables an application to ingest and handle huge streams of data records in real time. Utilizing the Amazon Kinesis Client Library, Amazon EC2 instances ingest and process data from the shards of the Kinesis data stream (KCL). The program manages failure situations and eliminates the need for backup personnel. The program indicates that a particular shard is getting much more data than anticipated. The hot shard is resharded to react to variations in the pace of data flow. If the initial number of shards in the Kinesis data stream is four, and the number of shards increases to six after resharding, what is the maximum number of EC2 instances that can be deployed to process data from all the shards?",
       "answers": [
-        "Implement error handling in the functions to write error logs to the AWS X-Ray API. Use the X-Ray console to query the logs.",
-        "Enable Amazon CloudWatch Logs and detailed CloudWatch metrics. Use CloudWatch Logs Insights to query the API Gateway logs.",
-        "Download the API Gateway logs and Lambda invocation logs from Amazon S3. Perform a line-by-line search against them.",
-        "Export the API Gateway logs and Lambda invocation logs from Amazon EventBridge (Amazon CloudWatch Events) and Amazon CloudWatch Logs. Perform a line-by-line search against them."
+        "12",
+        "6",
+        "4",
+        "1"
       ],
-      "correctAnswer": ["Enable Amazon CloudWatch Logs and detailed CloudWatch metrics. Use CloudWatch Logs Insights to query the API Gateway logs."]
+      "correctAnswer": ["6"]
     }
   },
   {
-    "id": "1166",
+    "id": "1182",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "An application becomes unresponsive due to the following error: The bucket given does not exist. Where IS THE BEST PLACE TO START THE ANALYSIS OF THE ROOT CAUSES?",
+      "question": "A developer is constructing a template for the AWS Serverless Application Model (AWS SAM). Multiple AWS Lambda functions, an Amazon S3 bucket, and an Amazon CloudFront distribution are defined in the AWS SAM template. One of the Lambda functions is executed on the CloudFront distribution's Lambda@Edge. The S3 bucket is specified as the CloudFront distribution's origin. While the developer installs the AWS SAM template in the eu-west-1 Region, the developer encounters an error when attempting to create the stack. What may have precipitated this problem?",
       "answers": [
-        "Check the Elastic Load Balancer logs for DeleteBucket requests.",
-        "Check the application logs in Amazon CloudWatch Logs for Amazon S3 DeleteBucket errors.",
-        "Check AWS X-Ray for Amazon S3 DeleteBucket alarms.",
-        "Check AWS CloudTrail for a DeleteBucket event."
+        "CloudFront distributions can be created only in the us-east-1 Region.",
+        "Lambda@Edge functions can be created only in the us-east-1 Region.",
+        "A single AWS SAM template cannot contain multiple Lambda functions.",
+        "The CloudFront distribution and the S3 bucket cannot be created in the same Region."
       ],
-      "correctAnswer": ["Check AWS CloudTrail for a DeleteBucket event."]
+      "correctAnswer": ["Lambda@Edge functions can be created only in the us-east-1 Region."]
     }
   },
   {
-    "id": "1167",
+    "id": "1183",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A developer is testing an application that asynchronously executes an AWS Lambda function. The Lambda function fails to process after two retries during the testing phase. How can the developer debug the error?",
+      "question": "A business provides services to a large number of downstream customers. Each customer has the option of connecting to one or more services. As a result, a complicated architecture that is difficult to manage and scales poorly has emerged. To administer various customer services, the organization requires a single interface. Which AWS service should this architecture be refactored with?",
       "answers": [
-        "Configure AWS CloudTrail logging to investigate the invocation failures",
-        "Configure Dead Letter Queues by sending events to Amazon SQS for investigation",
-        "Configure Amazon Simple Workflow Service to process any direct unprocessed events",
-        "Configure AWS Config to process any direct unprocessed events"
+        "AWS Lambda",
+        "AWS X-Ray",
+        "Amazon SQS",
+        "Amazon API Gateway"
       ],
-      "correctAnswer": ["Configure Dead Letter Queues by sending events to Amazon SQS for investigation"]
+      "correctAnswer": ["Amazon API Gateway"]
     }
   },
   {
-    "id": "1168",
-    "category": "Cloud Concepts",
-    "info": {
-      "subcategory": "Test Example Questions",
-      "questionType": "multiple choice 2",
-      "question": "A developer has an on-premises stateful web server that is being transferred to AWS. The developers flexibility in the new design must be increased. How should the developer approach refactoring the program to increase its elasticity? (Select two.)",
-      "answers": [
-        "Use pessimistic concurrency on Amazon DynamoDB",
-        "Use Amazon CloudFront with an Auto Scaling group",
-        "Use Amazon CloudFront with an AWS Web Application Firewall",
-        "Store session state data in an Amazon DynamoDB table",
-        "Use an ELB with an Auto Scaling group"
-      ],
-      "correctAnswer": ["Store session state data in an Amazon DynamoDB table", "Use an ELB with an Auto Scaling group"]
-    }
-  },
-  {
-    "id": "1169",
+    "id": "1184",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "Amazon API Gateway is being used by a media business to handle microservices configured as AWS Lambda functions. The development team of the corporation intends to release a new version of its API. To prevent impacting current customers when the new API is launched, the firm intends to provide all users a three-month grace period during which they may migrate from the old API to the new API. Which implementation technique should the business utilize to accomplish this objective?",
+      "question": "A corporation has automated their release pipelines using AWS CodePipeline. The development team is currently developing an AWS Lambda function that will deliver alerts when the status of each stage's action changes. How do I correlate the Lambda function with the event source?",
       "answers": [
-        "Update the Lambda functions. Configure the API to use Lambda proxy integration.",
-        "Update the Lambda functions. Provide the API client with the new Lambda endpoints.",
-        "Use API Gateway to deploy a new stage that uses updated Lambda functions and provides users with a new URL.",
-        "Use API Gateway to redirect requests based on a request header to updated Lambda functions. Configure a 90-day expiration on the old API."
+        "Create a trigger that invokes the Lambda function from the Lambda console by selecting CodePipeline as the event source.",
+        "Create an event trigger and specify the Lambda function from the CodePipeline console.",
+        "Create an Amazon CloudWatch alarm that monitors status changes in Code Pipeline and triggers the Lambda function.",
+        "Create an Amazon CloudWatch Events rule that uses CodePipeline as an event source."
       ],
-      "correctAnswer": ["Use API Gateway to deploy a new stage that uses updated Lambda functions and provides users with a new URL."]
+      "correctAnswer": ["Create an Amazon CloudWatch Events rule that uses CodePipeline as an event source."]
     }
   },
   {
-    "id": "1170",
+    "id": "1185",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A business wishes to establish continuous integration for its AWS workloads. The firm wishes to activate unit tests in its pipeline in response to updates to its code repository and to be alerted of pipeline failure events. How are these stipulations to be met?",
+      "question": "On the website of a worldwide ecommerce corporation, users are encouraged to post evaluations for things they have bought. Seasonal products are available. Products are popular for a brief period of time and then go out of favor the following season. Customers provide feedback in their native tongue. A developer is using Amazon Translate to construct a new function that will translate customer feedback into more languages. The website now features hundreds of thousands of goods and millions of reviews. The majority of reviews will be seen in one or two languages. How can this new feature be implemented in the MOST cost-effective manner possible?",
       "answers": [
-        "Store the source code in AWS CodeCommit. Create a CodePipeline to automate unit testing. Use Amazon SNS to trigger notifications of failure events.",
-        "Store the source code in GitHub. Create a CodePipeline to automate unit testing. Use Amazon SES to trigger notifications of failure events.",
-        "Store the source code on GitHub. Create a CodePipeline to automate unit testing. Use Amazon CloudWatch to trigger notifications of failure events.",
-        "Store the source code in AWS CodeCommit. Create a CodePipeline to automate unit testing. Use Amazon CloudWatch to trigger notification of failure events."
+        "Update the application code that writes the review to the database to translate the review into all supported languages. Persist a copy of each translation in the database for future visitors.",
+        "Update the application code that reads the review from the database to check an Amazon ElastiCache cluster for translated reviews. If a visitor is requesting a review and language combination that is not in the cache, configure the application to translate it and store it in the cache with a TTL of 1 month.",
+        "Update the application code that reads the review from the database to translate the review in real time and return the translated version without persisting it.",
+        "Set up a database change stream to write events to a stream each time a customer writes a review. Configure an AWS Lambda function to read the events from the stream, translate the review into all supported languages, and update the review database to include all translations for future visitors."
       ],
-      "correctAnswer": ["Store the source code in AWS CodeCommit. Create a CodePipeline to automate unit testing. Use Amazon SNS to trigger notifications of failure events."]
+      "correctAnswer": ["Update the application code that reads the review from the database to translate the review in real time and return the translated version without persisting it."]
     }
   },
   {
-    "id": "1171",
+    "id": "1186",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A business is designing a report that will be performed through AWS Step Functions. Amazon CloudWatch detects issues in the Task State Machine for Step Functions. To debug each operation, the state input must be included in the state output, along with the error message. Which coding technique preserves both the original input and the state error?",
+      "question": "A custom library is used by an application to perform HTTP calls directly to AWS service endpoints. The program is suffering transitory problems, which cause processes to halt when they are encountered for the first time. The application has been requested to be more robust by adding error retries and exponential backoff. How should a developer apply the modifications with the LITTLEEST amount of custom code possible?",
       "answers": [
-        "Use ResultPath in a Catch statement to include the error with the original input.",
-        "Use InputPath in a Catch statement and set the value to null.",
-        "Use ErrorEquals in a Retry statement to include the error with the original input.",
-        "Use OutputPath in a Retry statement and set the value to $."
+        "Add a Retry-After HTTP header to API requests",
+        "Use the AWS CLI to configure the retry settings in a named profile",
+        "Change the custom library to retry on 5xx errors only",
+        "Use an AWS SDK and set retry-specific configurations"
       ],
-      "correctAnswer": ["Use ResultPath in a Catch statement to include the error with the original input."]
+      "correctAnswer": ["Use an AWS SDK and set retry-specific configurations"]
     }
   },
   {
-    "id": "1172",
+    "id": "1187",
     "category": "Cloud Concepts",
     "info": {
       "subcategory": "Test Example Questions",
       "questionType": "multiple choice 1",
-      "question": "A company uses AWS CodePipeline to manage continuous integration/continuous delivery (CI/CD) pipelines for its application. Before staging artifacts for testing, a developer must create unit tests and execute them as part of the process. How should the developer implement unit tests into their continuous integration/continuous delivery pipelines?",
+      "question": "A business demands that AWS Lambda functions built by developers record problems in order for System Administrators to resolve issues more efficiently. What should developers do to address this need?",
       "answers": [
-        "Create a separate CodePipeline pipeline to run unit tests",
-        "Update the AWS CodeBuild specification to include a phase for running unit tests",
-        "Install the AWS CodeDeploy agent on an Amazon EC2 instance to run unit tests",
-        "Create a testing branch in AWS CodeCommit to run unit tests"
+        "Publish errors to a dedicated Amazon SQS queue.",
+        "Create an Amazon CloudWatch Events event trigger based on certain Lambda events.",
+        "Report errors through logging statements in Lambda function code.",
+        "Set up an Amazon SNS topic that sends logging statements upon failure."
       ],
-      "correctAnswer": ["Update the AWS CodeBuild specification to include a phase for running unit tests"]
+      "correctAnswer": ["Report errors through logging statements in Lambda function code."]
+    }
+  },
+  {
+    "id": "1188",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "In the console, a developer transformed an existing application to an AWS Lambda function. While the application works OK on a local laptop, it fails to import a module when evaluated in the Lambda interface. Which of the following may be used to correct the error?",
+      "answers": [
+        "Install the missing module and specify the current directory as the target. Create a ZIP file to include all files under the current directory, and upload the ZIP file.",
+        "Install the missing module in a lib directory. Create a ZIP file to include all files under the lib directory, and upload the ZIP file as dependency file.",
+        "In the Lambda code, invoke a Linux command to install the missing modules under the /usr/lib directory.",
+        "In the Lambda console, create a LB_LIBRARY_PATH environment and specify the value for the system library path."
+      ],
+      "correctAnswer": ["Install the missing module and specify the current directory as the target. Create a ZIP file to include all files under the current directory, and upload the ZIP file."]
+    }
+  },
+  {
+    "id": "1189",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A gaming business is in the process of creating a mobile game application for the iOS and Android operating systems. This mobile game encrypts user data and keeps it locally on the device. The business wants consumers to be able to play the game on numerous devices. Without developing a backend application, the organization needs to synchronize user data across devices. Which Amazon Web Services (AWS) offering or functionality should the business use to achieve these requirements?",
+      "answers": [
+        "AWS Lambda@Edge",
+        "Amazon S3 Transfer Acceleration",
+        "Amazon DynamoDB Accelerator (DAX)",
+        "AWS Amplify with AWS AppSync"
+      ],
+      "correctAnswer": ["AWS Amplify with AWS AppSync"]
+    }
+  },
+  {
+    "id": "1190",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "There are three separate environments in a company: development, quality assurance, and production. The company wishes to deploy its code in three stages: development, QA, and finally production. What AWS service may be used to fulfill this need?",
+      "answers": [
+        "Use AWS CodeCommit to create multiple repositories to deploy the application.",
+        "Use AWS CodeBuild to create, configure, and deploy multiple build application projects.",
+        "Use AWS Data Pipeline to create multiple data pipeline provisions to deploy the application.",
+        "Use AWS CodeDeploy to create multiple deployment groups."
+      ],
+      "correctAnswer": ["Use AWS CodeDeploy to create multiple deployment groups."]
+    }
+  },
+  {
+    "id": "1191",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "An application is composed of two components: one for handling HTTP requests and another for doing background processing operations. Each component must be self-scaling. The developer want to use AWS Elastic Beanstalk to deploy this application. How, in light of these criteria, should this application be deployed?",
+      "answers": [
+        "Deploy the application in a single Elastic Beanstalk environment.",
+        "Deploy each component in a separate Elastic Beanstalk environment.",
+        "Use multiple Elastic Beanstalk environments for the HTTP component, but one environment for the background task component.",
+        "Use multiple Elastic Beanstalk environments for the background task component, but one environment for the HTTP component."
+      ],
+      "correctAnswer": ["Deploy each component in a separate Elastic Beanstalk environment."]
+    }
+  },
+  {
+    "id": "1192",
+    "category": "Cloud Concepts",
+    "info": {
+      "subcategory": "Test Example Questions",
+      "questionType": "multiple choice 1",
+      "question": "A business runs a bespoke application on a series of on-premises Linux servers that are connected to Amazon API Gateway through Amazon API Gateway. On the API test stage, AWS X-Ray tracing has been enabled. How can a developer implement X-Ray tracing with the LEAST amount of setup on on-premises servers?",
+      "answers": [
+        "Install and run the X-Ray SDK on the on-premises servers to capture and relay the data to the X-Ray service.",
+        "Install and run the X-Ray daemon on the on-premises servers to capture and relay the data to the X-Ray service.",
+        "Capture incoming requests on-premises and configure an AWS Lambda function to pull, process, and relay relevant data to X-Ray using the PutTraceSegments API call.",
+        "Capture incoming requests on-premises and configure an AWS Lambda function to pull, process, and relay relevant data to X-Ray using the PutTelemetryRecords API call."
+      ],
+      "correctAnswer": ["Install and run the X-Ray daemon on the on-premises servers to capture and relay the data to the X-Ray service."]
     }
   }
 ]
